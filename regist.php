@@ -20,6 +20,9 @@
         <label>email : </label>
         <input type="text" name="email">
 
+        <label>sadas : </label>
+        <input type="text" name="email">
+        
     </form>
 </body>
 </html>
