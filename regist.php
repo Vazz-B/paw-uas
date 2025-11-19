@@ -20,8 +20,8 @@
         <label>email : </label>
         <input type="text" name="email">
 
-        <label>sadas : </label>
-        <input type="text" name="email">
+        <label>password : </label>
+        <input type="text" name="pass">
         
     </form>
 </body>
