@@ -1,4 +1,6 @@
 <?php 
+    include "koneksi.php";
+    
     if(isset($_POST['regist'])) {
         $nama = $_POST['nama'];
         $email = $_POST['email'];
