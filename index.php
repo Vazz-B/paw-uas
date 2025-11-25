@@ -1,5 +1,11 @@
 <?php
-if (isset($_GET['page']) && $_GET['page'] == 'user') {
-    require_once __DIR__ . '/controller/controller.php';
+require_once 'controller/loginController.php';
+
+$action = $_GET['action'] ?? 'login';
+
+if ($action == "login") {
+    tampilLogin();
+} 
+elseif ($action == "proses") {
+    prosesLogin();
 }
-?>
