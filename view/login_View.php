@@ -12,84 +12,96 @@ if (isset($_SESSION['login'])) {
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
     <title>Login</title>
 
-    <!-- Bootstrap 5 CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
         body {
-            background: #f7f9fc;
+            background: radial-gradient(circle at top, #eef1ff, #e6e9f5, #dfe3f0);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Segoe UI', sans-serif;
         }
-        .tab-select {
-            border-radius: 30px;
-            background: #e7e7ee;
-        }
-        .tab-select button {
-            border: none;
-            background: none;
-            padding: 10px 40px;
-            font-weight: 500;
-            border-radius: 25px;
-        }
-        .tab-active {
-            background: white;
-            color: black;
-            font-weight: 600;
-        }
+
         .login-card {
-            border-radius: 15px;
-            padding: 30px;
             background: white;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            padding: 35px;
+            border-radius: 15px;
+            width: 420px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+            animation: fadeIn 0.4s ease;
         }
-        .btn-dark {
-            background: #050517;
+
+        .title {
+            font-weight: 700;
+            font-size: 26px;
+            margin-bottom: 5px;
+            text-align: center;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            color: #777;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        input.form-control {
+            height: 48px;
+            border-radius: 10px;
+        }
+
+        .btn-login {
+            height: 48px;
+            border-radius: 10px;
+            background-color: #050517;
+            color: white;
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .btn-login:hover {
+            opacity: .85;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 
 </head>
 <body>
 
-<div class="container text-center mt-5">
-    
-    <!-- Logo Title -->
-    <h2 class="fw-bold mb-1">
-        <img src="logo.png" style="width:50px; margin-right:5px;">  
-        RevYou
-    </h2>
-    <p class="text-muted mb-4">
-        Platform Review Buku, Film, Game & Lagu
-    </p>
+<div class="login-card">
 
-    <!-- User / Admin Tabs -->
-
-    <!-- Login Card -->
-    <div class="col-md-4 mx-auto">
-        <div class="login-card text-start">
-            <h4 class="fw-semibold mb-3">Login</h4>
-
-            <form action="index.php?action=proses" method="POST">
-
-                <label class="fw-semibold">Username</label>
-                <input type="text" name="nama" class="form-control mb-3" placeholder="username" required>
-
-                <label class="fw-semibold">Password</label>
-                <input type="password" name="password" class="form-control mb-4" required>
-
-                <button type="submit" class="btn btn-dark w-100 mb-3">Login</button>
-
-                <p class="text-center">
-                    Belum punya akun?
-                    <a href="index.php?action=daftar" class="fw-semibold">Daftar</a>
-                </p>
-            </form>
-        </div>
+    <div class="text-center mb-4">
+        <img src="logo.png" width="55" class="mb-2">
+        <div class="title">Login RevYou</div>
+        <div class="subtitle">Masuk untuk mengakses review favoritmu</div>
     </div>
+
+    <form action="index.php?action=proses" method="POST">
+
+        <label class="fw-semibold mb-1">Username</label>
+        <input type="text" name="nama" class="form-control mb-3" placeholder="Masukkan username" required>
+
+        <label class="fw-semibold mb-1">Password</label>
+        <input type="password" name="password" class="form-control mb-4" placeholder="Masukkan password" required>
+
+        <button type="submit" class="btn btn-login w-100">Login</button>
+
+        <p class="text-center mt-3">
+            Belum punya akun?
+            <a href="index.php?action=daftar" class="fw-bold">Daftar Sekarang</a>
+        </p>
+    </form>
 
 </div>
 
