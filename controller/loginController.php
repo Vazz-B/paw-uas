@@ -12,28 +12,25 @@ function prosesLogin() {
     $nama = $_POST['nama'];
     $password = $_POST['password'];
 
+    // Ambil data user dari model
     $result = cekUser($nama, $password);
 
     if ($result) {
+        // Simpan semua data penting ke session
+        $_SESSION['login'] = true;
         $_SESSION['user_id'] = $result['user_id'];
         $_SESSION['nama'] = $result['nama'];
         $_SESSION['role'] = $result['role'];
+
+        // Redirect berdasarkan role
         if ($result['role'] == "admin") {
-            $_SESSION['login'] = true;
-            $_SESSION['nama'] = $nama;
             header("Location: /UAS/paw-uas/view/admin/dashboard_admin.php");
-        exit;
-        }
-        else{
-            $_SESSION['user_id'] = $result['user_id'];
-            $_SESSION['login'] = true;
-            $_SESSION['nama'] = $nama;
+        } else {
             header("Location: /UAS/paw-uas/view/user/dashboard_user.php");
-            exit;
         }
-        
+        exit;
     } else {
-        echo "<script>alert('nama atau password salah!'); window.location='index.php';</script>";
+        echo "<script>alert('Nama atau password salah!'); window.location='index.php?action=login';</script>";
         exit;
     }
 }
