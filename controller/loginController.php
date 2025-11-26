@@ -1,14 +1,6 @@
 <?php
-require_once __DIR__ . '/../model/userModel.php';
-
-$users = getAllUser();
-
-require_once __DIR__ . '/../view/user.php';
-
-
-
-// login
-require_once __DIR__ . '/../model/userModel.php';
+// loginc
+require_once __DIR__ . '/../model/loginModel.php';
 
 function tampilLogin() {
     include __DIR__ . '/../view/login_view.php';
@@ -17,18 +9,29 @@ function tampilLogin() {
 function prosesLogin() {
     session_start();
 
-    $username = $_POST['username'];
+    $nama = $_POST['nama'];
     $password = $_POST['password'];
 
-    $result = cekUser($username, $password);
+    $result = cekUser($nama, $password);
 
-    if (mysqli_num_rows($result) === 1) {
-        $_SESSION['login'] = true;
-        $_SESSION['username'] = $username;
-        header("Location: dashboard.php");
+    if ($result) {
+        $_SESSION['nama'] = $result['nama'];
+        $_SESSION['role'] = $result['role'];
+        if ($result['role'] == "admin") {
+            $_SESSION['login'] = true;
+            $_SESSION['nama'] = $nama;
+            header("Location: /UAS/paw-uas/view/admin/dashboard_admin.php");
         exit;
+        }
+        else{
+            $_SESSION['login'] = true;
+            $_SESSION['nama'] = $nama;
+            header("Location: /UAS/paw-uas/view/user/dashboard_user.php");
+            exit;
+        }
+        
     } else {
-        echo "<script>alert('Username atau password salah!'); window.location='index.php';</script>";
+        echo "<script>alert('nama atau password salah!'); window.location='index.php';</script>";
         exit;
     }
 }

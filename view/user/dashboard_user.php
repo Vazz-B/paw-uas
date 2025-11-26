@@ -6,5 +6,5 @@ if (!isset($_SESSION['login'])) {
     exit;
 }
 
-echo "Selamat datang, " . $_SESSION['username'];
-echo "<br><a href='logout.php'>Logout</a>";
+echo "Selamat datang, " . $_SESSION['nama'];
+echo "<br><a href='../../logout.php'>Logout</a>";
