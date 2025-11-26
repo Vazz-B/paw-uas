@@ -15,6 +15,7 @@ function prosesLogin() {
     $result = cekUser($nama, $password);
 
     if ($result) {
+        $_SESSION['user_id'] = $result['user_id'];
         $_SESSION['nama'] = $result['nama'];
         $_SESSION['role'] = $result['role'];
         if ($result['role'] == "admin") {
@@ -24,6 +25,7 @@ function prosesLogin() {
         exit;
         }
         else{
+            $_SESSION['user_id'] = $result['user_id'];
             $_SESSION['login'] = true;
             $_SESSION['nama'] = $nama;
             header("Location: /UAS/paw-uas/view/user/dashboard_user.php");
