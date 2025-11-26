@@ -21,7 +21,7 @@ if (isset($_SESSION['login'])) {
 
     <style>
         body {
-            background: radial-gradient(circle at top, #eef1ff, #e6e9f5, #dfe3f0);
+            background: white;
             min-height: 100vh;
             display: flex;
             justify-content: center;
@@ -34,7 +34,7 @@ if (isset($_SESSION['login'])) {
             padding: 35px;
             border-radius: 15px;
             width: 420px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+            box-shadow: 0 25px 70px rgba(0,0,0,0.18);
             animation: fadeIn 0.4s ease;
         }
 

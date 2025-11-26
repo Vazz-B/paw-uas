@@ -6,7 +6,7 @@
 
     <style>
         body {
-            background: radial-gradient(circle at top, #eef1ff, #e6e9f5, #dfe3f0);
+            background: white;
             min-height: 100vh;
             display: flex;
             justify-content: center;
@@ -19,7 +19,7 @@
             padding: 35px;
             border-radius: 15px;
             width: 420px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+            box-shadow: 0 25px 70px rgba(0,0,0,0.18);
             animation: fadeIn 0.4s ease;
         }
 
@@ -91,7 +91,7 @@
     <div class="text-center mb-4">
         <img src="logo.png" width="55" class="mb-2">
         <div class="title">Buat Akun RevYou</div>
-        <div class="subtitle">Akses review buku, film, game & lagu</div>
+        <div class="subtitle">Masuk untuk mengakses review favoritmu</div>
     </div>
 
     <form action="index.php?action=proses_daftar" method="POST">
