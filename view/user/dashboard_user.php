@@ -170,7 +170,7 @@ $posts = ambilSemuaPostingan();
             
             <div class="d-flex align-items-center py-4 border-bottom mb-4 sticky-top bg-white" style="z-index: 90;">
                 <a href="#" class="filter-pill active"><i class="bi bi-phone"></i> Semua</a>
-                <a href="#" class="filter-pill"><i class="bi bi-book"></i> Buku</a>
+                <a href="../../index.php?action=buku" class="filter-pill"><i class="bi bi-book"></i> Buku</a>
                 <a href="#" class="filter-pill"><i class="bi bi-film"></i> Film</a>
                 <a href="#" class="filter-pill"><i class="bi bi-controller"></i> Game</a>
                 
