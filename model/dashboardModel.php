@@ -1,28 +1,22 @@
 <?php
+require_once __DIR__ . '/../config/koneksi.php';
 
-require_once __DIR__ . "/../tpp/conn.php";
-
-class dashboardModel {
-
-    private $db;
-
-    public function __construct() {
-        global $conn;
-        $this->db = $conn;
+function ambilSemuaPostingan() {
+    global $conn;
+    
+    // Join ke tabel user (pastikan nama tabel user benar, di screenshot terlihat 'user')
+    // Sesuaikan nama kolom di tabel post (post_id, judul, gambar, tanggal_post)
+    $query = "SELECT post.*, user.nama as nama_user 
+              FROM post 
+              JOIN user ON post.user_id = user.user_id 
+              ORDER BY post.post_id DESC";
+              
+    $result = mysqli_query($conn, $query);
+    
+    // Cek error kalau query salah
+    if (!$result) {
+        die("Query Error: " . mysqli_error($conn));
     }
 
-    // Ambil postingan dari database
-    public function getPosts() {
-        $sql = "SELECT 
-                    p.*, 
-                    u.nama AS username,
-                    k.nama_kategori AS kategori
-                FROM post p
-                JOIN user u ON p.user_id = u.id
-                JOIN kategori k ON p.kategori_id = k.kategori_id
-                WHERE p.deleted_by IS NULL
-                ORDER BY p.tanggal_post DESC";
-
-        return mysqli_query($this->db, $sql);
-    }
+    return mysqli_fetch_all($result, MYSQLI_ASSOC);
 }

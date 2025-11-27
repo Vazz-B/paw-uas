@@ -1,6 +1,7 @@
 <?php
 require_once 'controller/loginController.php';
 require_once 'controller/daftarController.php';
+require_once 'controller/dashboardController.php';
 require_once 'controller/postController.php';
 
 $action = $_GET['action'] ?? 'login';

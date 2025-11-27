@@ -1,7 +1,7 @@
 <?php
 session_start();
 // Include model biar bisa ambil data feed
-require_once '../../model/postModel.php'; 
+require_once '../../model/dashboardModel.php'; 
 
 if (!isset($_SESSION['login'])) {
     header("Location: ../../index.php");
@@ -143,7 +143,7 @@ $posts = ambilSemuaPostingan();
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#uploadModal">
+                        <a class="nav-link" href="post.php" data-bs-toggle="modal" data-bs-target="#uploadModal">
                             <i class="bi bi-plus-circle"></i> Tambah Postingan
                         </a>
                     </li>
