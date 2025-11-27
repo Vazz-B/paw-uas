@@ -7,7 +7,7 @@ function tampilDaftar() {
 }
 
 // Proses daftar
-function prosesDaftar() {
+function prosesDaftar() {      
     $nama = $_POST['nama'];
     $email = $_POST['email'];
     $password = $_POST['password'];
