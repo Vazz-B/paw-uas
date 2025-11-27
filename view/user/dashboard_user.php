@@ -23,108 +23,20 @@ $posts = ambilSemuaPostingan();
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
     <style>
-        body {
-            background-color: #f8f9fa;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
+        body { background-color: #f8f9fa; font-family: 'Segoe UI', sans-serif; }
         /* Sidebar Styling */
-        .sidebar {
-            position: fixed;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            z-index: 100;
-            padding: 48px 0 0;
-            box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
-            background-color: #fff;
-        }
-
-        .nav-link {
-            font-weight: 500;
-            color: #333;
-            margin-bottom: 10px;
-            padding: 10px 20px;
-            border-radius: 30px; /* Membuat tombol bulat */
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .nav-link:hover {
-            background-color: #f1f1f1;
-            color: #000;
-        }
-
-        .nav-link.active {
-            background-color: #000;
-            color: #fff;
-        }
-
-        /* Feed Styling */
-        .feed-container {
-            margin-top: 20px;
-        }
-
-        .filter-pill {
-            background: #fff;
-            border: 1px solid #eee;
-            color: #555;
-            padding: 8px 20px;
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: 500;
-            text-decoration: none;
-            margin-right: 5px;
-            transition: 0.2s;
-        }
+        .sidebar { position: fixed; top: 0; bottom: 0; left: 0; z-index: 100; padding: 48px 0 0; box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1); background-color: #fff; }
+        .nav-link { font-weight: 500; color: #333; margin-bottom: 10px; padding: 10px 20px; border-radius: 30px; display: flex; align-items: center; gap: 10px; }
+        .nav-link:hover { background-color: #f1f1f1; color: #000; }
+        .nav-link.active { background-color: #000; color: #fff; }
         
-        .filter-pill.active {
-            background: #000;
-            color: #fff;
-            border-color: #000;
-        }
-
-        .filter-pill:hover {
-            background-color: #e9ecef;
-            color: #000;
-        }
-
-        /* Card Post Styling */
-        .post-card {
-            border: 1px solid #eee;
-            border-radius: 16px;
-            background: #fff;
-            margin-bottom: 25px;
-            padding: 20px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
-        }
-
-        .user-avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            object-fit: cover;
-            background-color: #ddd;
-        }
-
-        .post-img {
-            border-radius: 12px;
-            width: 100%;
-            margin-top: 15px;
-            object-fit: cover;
-        }
-        
-        .category-badge {
-            background-color: #f1f3f5;
-            color: #555;
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 12px;
-            font-weight: 600;
-            display: inline-block;
-            margin-bottom: 10px;
-        }
+        /* Feed & Card Styling */
+        .filter-pill { background: #fff; border: 1px solid #eee; color: #555; padding: 8px 20px; border-radius: 20px; font-size: 14px; font-weight: 500; text-decoration: none; margin-right: 5px; transition: 0.2s; }
+        .filter-pill.active { background: #000; color: #fff; border-color: #000; }
+        .post-card { border: 1px solid #eee; border-radius: 16px; background: #fff; margin-bottom: 25px; padding: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.02); }
+        .user-avatar { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; background-color: #ddd; }
+        .post-img { border-radius: 12px; width: 100%; margin-top: 15px; object-fit: cover; }
+        .category-badge { background-color: #f1f3f5; color: #555; padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: 600; display: inline-block; margin-bottom: 10px; }
     </style>
 </head>
 <body>
@@ -135,12 +47,9 @@ $posts = ambilSemuaPostingan();
         <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse">
             <div class="position-sticky pt-3 px-3">
                 <h4 class="mb-4 px-2 fw-bold">Minimal</h4>
-                
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">
-                            <i class="bi bi-house-door-fill"></i> Home
-                        </a>
+                        <a class="nav-link active" href="#"><i class="bi bi-house-door-fill"></i> Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#uploadModal">
@@ -148,19 +57,13 @@ $posts = ambilSemuaPostingan();
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <i class="bi bi-trophy"></i> Rangking
-                        </a>
+                        <a class="nav-link" href="#"><i class="bi bi-trophy"></i> Rangking</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <i class="bi bi-person"></i> Profil
-                        </a>
+                        <a class="nav-link" href="#"><i class="bi bi-person"></i> Profil</a>
                     </li>
                     <li class="nav-item mt-5">
-                        <a class="nav-link text-danger" href="../../logout.php">
-                            <i class="bi bi-box-arrow-left"></i> Logout
-                        </a>
+                        <a class="nav-link text-danger" href="../../logout.php"><i class="bi bi-box-arrow-left"></i> Logout</a>
                     </li>
                 </ul>
             </div>
@@ -185,8 +88,7 @@ $posts = ambilSemuaPostingan();
 
                     <?php if (empty($posts)): ?>
                         <div class="text-center py-5 text-muted">
-                            <i class="bi bi-inbox fs-1"></i>
-                            <p>Belum ada postingan.</p>
+                            <i class="bi bi-inbox fs-1"></i><p>Belum ada postingan.</p>
                         </div>
                     <?php endif; ?>
 
@@ -196,19 +98,22 @@ $posts = ambilSemuaPostingan();
                                 <img src="https://ui-avatars.com/api/?name=<?= $p['nama_user'] ?>&background=random" class="user-avatar me-3">
                                 <div>
                                     <h6 class="mb-0 fw-bold"><?= $p['nama_user'] ?></h6>
-                                    <small class="text-muted"><?= date('d M Y, H:i', strtotime($p['tanggal_post'])) ?></small>
+                                    <small class="text-muted">
+                                        <?php 
+                                            if (!empty($p['tanggal_post'])) {
+                                                echo date('d M Y, H:i', strtotime($p['tanggal_post']));
+                                            } else {
+                                                echo "Baru saja";
+                                            }
+                                        ?>
+                                    </small>
                                 </div>
                             </div>
 
-                            <div class="category-badge">
-                                <i class="bi bi-book-fill me-1"></i> Review
-                            </div>
+                            <div class="category-badge"><i class="bi bi-book-fill me-1"></i> Review</div>
 
                             <h5 class="fw-bold"><?= $p['judul'] ?></h5>
-                            
-                            <p class="text-secondary">
-                                <?= !empty($p['isi']) ? $p['isi'] : 'Tidak ada deskripsi tambahan untuk review ini.' ?>
-                            </p>
+                            <p class="text-secondary"><?= !empty($p['isi']) ? $p['isi'] : 'Tidak ada deskripsi.' ?></p>
 
                             <?php if (!empty($p['gambar'])): ?>
                                 <img src="../../uploads/<?= $p['gambar'] ?>" class="post-img" alt="Post Image">
@@ -228,38 +133,7 @@ $posts = ambilSemuaPostingan();
     </div>
 </div>
 
-<div class="modal fade" id="uploadModal" tabindex="-1" aria-labelledby="uploadModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header border-0">
-                <h5 class="modal-title fw-bold" id="uploadModalLabel">Buat Review Baru</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <form action="../../index.php?action=simpan_post" method="POST" enctype="multipart/form-data">
-                <div class="modal-body">
-                    <div class="mb-3">
-                        <label class="form-label fw-semibold">Judul Review</label>
-                        <input type="text" name="judul" class="form-control" placeholder="Contoh: Atomic Habits..." required>
-                    </div>
-                    
-                    <div class="mb-3">
-                        <label class="form-label fw-semibold">Isi Review</label>
-                        <textarea name="isi" class="form-control" rows="3" placeholder="Bagaimana pendapatmu?"></textarea>
-                    </div>
-
-                    <div class="mb-3">
-                        <label class="form-label fw-semibold">Upload Foto</label>
-                        <input type="file" name="foto" class="form-control" required>
-                    </div>
-                </div>
-                <div class="modal-footer border-0">
-                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Batal</button>
-                    <button type="submit" class="btn btn-dark px-4">Posting</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
+<?php include 'post.php'; ?>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
