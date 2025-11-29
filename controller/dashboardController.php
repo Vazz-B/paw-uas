@@ -1,0 +1,17 @@
+<?php
+require_once __DIR__ . '/../model/dashboardModel.php';
+
+function tampilDashboard() {
+    session_start();
+
+    if (!isset($_SESSION['login'])) {
+        header("Location: index.php?action=login");
+        exit;
+    }
+
+    // Ambil data postingan dari model
+    $posts = ambilSemuaPostingan();
+
+    // Kirim ke view
+    require_once __DIR__ . '/../view/user/dashboard_user.php';
+}

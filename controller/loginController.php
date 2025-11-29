@@ -24,12 +24,13 @@ function prosesLogin() {
 
         // Redirect berdasarkan role
         if ($result['role'] == "admin") {
-            header("Location: /UAS/paw-uas/view/admin/dashboard_admin.php");
+            header("Location: /UAS/paw-uas/view/admin/dashboard_admin.php?action=dashboard_admin");
         } else {
-            header("Location: /UAS/paw-uas/view/user/dashboard_user.php");
+            header("Location: /UAS/paw-uas/index.php?action=dashboard");
         }
         exit;
-    } else {
+    } 
+    else {
         echo "<script>alert('Nama atau password salah!'); window.location='index.php?action=login';</script>";
         exit;
     }

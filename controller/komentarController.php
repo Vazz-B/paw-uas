@@ -1,0 +1,3 @@
+- fungsi tambah komentar
+- fungsi hapus komentar sendiri
+- fungsi tampil semua komentar
