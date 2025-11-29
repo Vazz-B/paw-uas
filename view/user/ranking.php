@@ -167,17 +167,14 @@ $posts = ambilSemuaPostingan();
         </nav>
 
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 bg-white min-vh-100">
-            
             <div class="d-flex align-items-center py-4 border-bottom mb-4 sticky-top bg-white" style="z-index: 90;">
-                <a href="#" class="filter-pill active"><i class="bi bi-phone"></i> Semua</a>
-                <a href="#" class="filter-pill"><i class="bi bi-book"></i> Buku</a>
-                <a href="#" class="filter-pill"><i class="bi bi-film"></i> Film</a>
-                <a href="#" class="filter-pill"><i class="bi bi-controller"></i> Game</a>
-                
+            <h1>PERINGKAT POSTINGAN</h1>
+            <h3>postingan dengan like terbanyak</h3>    
                 <div class="ms-auto d-flex align-items-center">
                     <span class="me-2 text-muted small">Halo, <b><?= $_SESSION['nama'] ?></b></span>
                     <img src="https://ui-avatars.com/api/?name=<?= $_SESSION['nama'] ?>&background=random" class="user-avatar" width="30">
                 </div>
+                        
             </div>
 
             <div class="row justify-content-center">
