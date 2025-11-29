@@ -20,7 +20,11 @@ function prosesLogin() {
         $_SESSION['login'] = true;
         $_SESSION['user_id'] = $result['user_id'];
         $_SESSION['nama'] = $result['nama'];
+        $_SESSION['email'] = $result['email'];
         $_SESSION['role'] = $result['role'];
+        $_SESSION['sekolah_id'] = $result['sekolah_id'];
+        $_SESSION['nama_sekolah'] = $result['nama_sekolah']; 
+        $_SESSION['jumlah_postingan'] = $result['user_id']; 
 
         // Redirect berdasarkan role
         if ($result['role'] == "admin") {

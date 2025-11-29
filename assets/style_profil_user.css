@@ -1,0 +1,122 @@
+body {
+    font-family: Arial, sans-serif; 
+    background-color: #f7f7f7;
+    margin: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Header Atas */
+.header {
+    width: 100%;
+    padding: 15px 20px;
+    font-weight: bold;
+    color: white;
+    background-color: #413f3d;
+    margin-bottom: 20px;
+    box-sizing: border-box; 
+}
+
+.profil-container {
+    width: 100%;
+    padding: 0 20px;
+}
+
+/* Tombol Kembali */
+.kembali {
+    margin-bottom: 20px;
+    padding-left: 20px;
+}
+a{
+    text-decoration: none;
+    color: #555;
+}
+
+/* Profil */
+.card {
+    background-color: white;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    margin: 20px;
+}
+
+/* Header Profil (profil, Info, Logout) */
+.card-header {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+/* Placeholder profil */
+.foto-profil {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    margin-right: 15px;
+    background-color: #ccc; 
+}
+
+.info {
+    flex-grow: 1;
+}
+
+.info h2 {
+    margin: 0 0 4px 0;
+    font-size: 20px;
+}
+
+.info p {
+    margin: 0;
+    color: #777;
+    font-size: 15px;
+}
+
+.logout {
+    background-color: transparent;
+    border: 1px solid #ccc;
+    color: #555;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Bagian Bio */
+.section-bio {
+    padding: 20px;
+    position: relative;
+}
+
+.section-title {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.edit {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: #999;
+    font-size: 1.1em;
+    cursor: pointer;
+}
+
+/* Bagian Postingan */
+.postingan {
+    padding: 0 20px;
+}
+
+.postingan .section-title {
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.post {
+    text-align: center;
+    padding: 40px 20px;
+    color: #777;
+    background-color: #fff;
+}

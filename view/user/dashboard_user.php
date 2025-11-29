@@ -30,14 +30,15 @@ $posts = ambilSemuaPostingan();
 
         /* Sidebar Styling */
         .sidebar {
-            position: fixed;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            z-index: 100;
-            padding: 48px 0 0;
-            box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
-            background-color: #fff;
+            background: #fff;
+            padding-top: 40px;
+            min-height: 100%;
+            border-right: 1px solid #eee;
+        }
+        .main-content {
+            padding: 20px;
+            background: white;
+            min-height: 800px;
         }
 
         .nav-link {
@@ -111,8 +112,10 @@ $posts = ambilSemuaPostingan();
         .post-img {
             border-radius: 12px;
             width: 100%;
-            margin-top: 15px;
+            margin-top: 10px;
             object-fit: cover;
+            max-height: 500px;
+            object-fit: contain ;
         }
         
         .category-badge {
@@ -132,7 +135,7 @@ $posts = ambilSemuaPostingan();
 <div class="container-fluid">
     <div class="row">
         
-        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse">
+        <nav id="sidebarMenu" class="col-3 col-md-3 col-lg-2 sidebar">
             <div class="position-sticky pt-3 px-3">
                 <h4 class="mb-4 px-2 fw-bold">Minimal</h4>
                 
@@ -153,7 +156,7 @@ $posts = ambilSemuaPostingan();
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="profil_user.php">
                             <i class="bi bi-person"></i> Profil
                         </a>
                     </li>
@@ -166,7 +169,7 @@ $posts = ambilSemuaPostingan();
             </div>
         </nav>
 
-        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 bg-white min-vh-100">
+        <main class="col-9 col-md-9 col-lg-10 px-md-4 bg-white">
             
             <div class="d-flex align-items-center py-4 border-bottom mb-4 sticky-top bg-white" style="z-index: 90;">
                 <a href="#" class="filter-pill active"><i class="bi bi-phone"></i> Semua</a>

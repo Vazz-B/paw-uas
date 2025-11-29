@@ -7,7 +7,7 @@ if (isset($_SESSION['login'])) {
         exit;
     }
     else {
-        header("Location: /UAS/paw-uas/view/user/dashboard_user.php");
+        header("Location: /paw-uas/view/user/dashboard_user.php");
         exit;
     }
 }
