@@ -28,9 +28,9 @@ function prosesDaftar() {
     }
 }
 
-// Untuk AJAX autocomplete
+// nama sekolah otomatis
 function cariSekolahAjax() {
-    $keyword = $_GET['keyword'] ?? '';
-    $data = cariSekolah($keyword);
-    echo json_encode($data);
+    $keyword = trim($_GET['keyword'] ?? '');
+    header('Content-Type: application/json'); // penting
+    echo json_encode(cariSekolah($keyword));
 }

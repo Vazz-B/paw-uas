@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../model/postModel.php';
+require_once __DIR__ . '/../model/tambahPostinganModel.php';
 
 function prosesSimpanPost() {
     session_start();
@@ -10,9 +10,12 @@ function prosesSimpanPost() {
         exit;
     }
 
-    $judul = $_POST['judul'];
-    // Kita butuh ID user yang sedang login (Nanti kita tambahkan di LoginController)
     $user_id = $_SESSION['user_id'] ?? 0; 
+    $kategori_id = $_POST['kategori_id'];
+    $judul = $_POST['judul'];
+    $isi = $_POST['isi'];
+    // Kita butuh ID user yang sedang login (Nanti kita tambahkan di LoginController)
+    
 
     // --- LOGIKA GAMBAR OTOMATIS ---
     $namaFile = $_FILES['foto']['name'];
@@ -34,11 +37,9 @@ function prosesSimpanPost() {
 
     // Pindahkan File
     if (move_uploaded_file($tmpName, $tujuan)) {
-        
         // Panggil Model untuk simpan text ke DB
-        if (simpanPostingan($user_id, $judul, $namaBaru)) {
-            // Berhasil
-            echo "<script>alert('Berhasil Upload!'); window.location='view/user/dashboard_user.php';</script>";
+        if (simpanPostingan($user_id, $kategori_id, $judul, $isi, $namaBaru)) {
+            echo "<script>alert('Berhasil Upload!'); window.location='/UAS/paw-uas/index.php?action=dashboard';</script>";
         } else {
             echo "<script>alert('Gagal simpan ke database!'); window.history.back();</script>";
         }

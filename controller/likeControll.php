@@ -1,0 +1,2 @@
+- fungsi like postingan
+- fungsi like komentar
