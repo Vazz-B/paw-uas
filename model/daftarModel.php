@@ -16,23 +16,23 @@ function cariSekolah($keyword) {
 }
 
 // Tambahkan sekolah jika belum ada
-function tambahSekolahJikaBelumAda($nama) {
+function tambahSekolahJikaBelumAda($asal_sekolah) {
     global $conn;
 
     // Cek dulu
     $sql = "SELECT sekolah_id FROM sekolah WHERE nama_sekolah = ?";
     $stmt = mysqli_prepare($conn, $sql);
-    mysqli_stmt_bind_param($stmt, "s", $nama);
+    mysqli_stmt_bind_param($stmt, "s", $asal_sekolah);
     mysqli_stmt_execute($stmt);
-    $res = mysqli_stmt_get_result($stmt);
+    $data_sekolah = mysqli_stmt_get_result($stmt);
 
-    if ($row = mysqli_fetch_assoc($res)) {
-        return $row['id']; // sudah ada
+    if ($row = mysqli_fetch_assoc($data_sekolah)) {
+        return $row['sekolah_id']; // sudah ada
     }
 
     // Tambahkan baru
     $insert = mysqli_prepare($conn, "INSERT INTO sekolah (nama_sekolah) VALUES (?)");
-    mysqli_stmt_bind_param($insert, "s", $nama);
+    mysqli_stmt_bind_param($insert, "s", $asal_sekolah);
     mysqli_stmt_execute($insert);
 
     return mysqli_insert_id($conn);

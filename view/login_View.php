@@ -80,14 +80,13 @@ if (isset($_SESSION['login'])) {
 <body>
 
 <div class="login-card">
-
     <div class="text-center mb-4">
         <img src="logo.png" width="55" class="mb-2">
         <div class="title">Login RevYou</div>
         <div class="subtitle">Masuk untuk mengakses review favoritmu</div>
     </div>
 
-    <form action="index.php?action=proses" method="POST">
+    <form action="index.php?action=proses_login" method="POST">
 
         <label class="fw-semibold mb-1">Username</label>
         <input type="text" name="nama" class="form-control mb-3" placeholder="Masukkan username" required>
