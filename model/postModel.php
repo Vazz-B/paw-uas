@@ -39,6 +39,27 @@ function ambilSemuaPostingan() {
 
     return mysqli_fetch_all($result, MYSQLI_ASSOC);
 }
+
+function ambilPostinganBuku() {
+    global $conn;
+
+    // kategori_id = 1 berarti kategori Buku (lihat tabel kategori kamu)
+    $kategori_id = 1;
+
+    $query = "SELECT post.*, user.nama AS nama_user, kategori.nama_kategori
+              FROM post
+              JOIN user ON post.user_id = user.user_id
+              JOIN kategori ON post.kategori_id = kategori.kategori_id
+              WHERE post.kategori_id = $kategori_id
+              ORDER BY post.post_id DESC";
+
+    $result = mysqli_query($conn, $query);
+
+    if (!$result) {
+        die('Query Error: ' . mysqli_error($conn));
+    }
+
+    return mysqli_fetch_all($result, MYSQLI_ASSOC);
+}
+
 ?>
-
-

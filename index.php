@@ -2,7 +2,6 @@
 require_once 'controller/loginController.php';
 require_once 'controller/daftarController.php';
 require_once 'controller/postController.php';
-require_once 'controller/bukuController.php';
 
 
 $action = $_GET['action'] ?? 'login';
@@ -13,4 +12,4 @@ elseif ($action == "daftar") tampilDaftar();
 elseif ($action == "proses_daftar") prosesDaftar();
 elseif ($action == "cari_sekolah") cariSekolahAjax();
 elseif ($action == "simpan_post") prosesSimpanPost();
-elseif ($action == "buku") tampilBuku();
+elseif ($action == "buku") tampilPostinganBuku();

@@ -1,6 +1,8 @@
 <?php
 require_once __DIR__ . '/../model/postModel.php';
 
+require_once __DIR__ . '/../model/postModel.php';
+
 function prosesSimpanPost() {
     session_start();
 
@@ -46,5 +48,21 @@ function prosesSimpanPost() {
     } else {
         echo "<script>alert('Gagal upload gambar!'); window.history.back();</script>";
     }
+}
+
+// tambah halaman buku
+function tampilPostinganBuku() {
+    require_once __DIR__ . '/../model/postModel.php';
+
+    // Ambil postingan kategori Buku (kategori_id = 1)
+    $dataBuku = ambilPostinganBuku();
+
+    // Arahkan ke halaman buku
+    include __DIR__ . '/../view/user/buku.php';
+}
+
+if (isset($_GET['action']) && $_GET['action'] === 'buku') {
+    tampilPostinganBuku();
+    exit;
 }
 ?>
