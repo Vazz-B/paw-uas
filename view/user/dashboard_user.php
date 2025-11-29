@@ -144,7 +144,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="profil.php">
                             <i class="bi bi-person"></i> Profil
                         </a>
                     </li>
