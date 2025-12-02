@@ -1,16 +1,5 @@
-<?php
-session_start();
-// Include model biar bisa ambil data feed
-require_once '../../model/postModel.php'; 
+<?php include 'tambah_postingan.php'; ?>
 
-if (!isset($_SESSION['login'])) {
-    header("Location: ../../index.php");
-    exit;
-}
-
-// Ambil data postingan
-$posts = ambilSemuaPostingan(); 
-?>
 
 <!DOCTYPE html>
 <html lang="id">
@@ -133,8 +122,10 @@ $posts = ambilSemuaPostingan();
     <div class="row">
         
         <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse">
-            <div class="position-sticky pt-3 px-3">
-                <h4 class="mb-4 px-2 fw-bold">Minimal</h4>
+            <div class="position-sticky pt-0 px-3">
+                <h4 class="mb-4 px-2 fw-bold d-flex align-items-center justify-content-center">
+                    <img src="logo.png" width="100" height="100" alt="Logo">
+                </h4>
                 
                 <ul class="nav flex-column">
                     <li class="nav-item">
@@ -143,7 +134,7 @@ $posts = ambilSemuaPostingan();
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#uploadModal">
+                        <a class="nav-link" href="" data-bs-toggle="modal" data-bs-target="#uploadModal">
                             <i class="bi bi-plus-circle"></i> Tambah Postingan
                         </a>
                     </li>
@@ -158,7 +149,7 @@ $posts = ambilSemuaPostingan();
                         </a>
                     </li>
                     <li class="nav-item mt-5">
-                        <a class="nav-link text-danger" href="../../logout.php">
+                        <a class="nav-link text-danger" href="index.php?action=logout">
                             <i class="bi bi-box-arrow-left"></i> Logout
                         </a>
                     </li>
@@ -201,7 +192,21 @@ $posts = ambilSemuaPostingan();
                             </div>
 
                             <div class="category-badge">
-                                <i class="bi bi-book-fill me-1"></i> Review
+                                <?php
+                                    if ($p['nama_kategori'] == "Buku") {
+                                        echo '<i class="bi bi-book-fill me-1"></i>' . $p['nama_kategori'];
+                                    }
+                                    elseif($p['nama_kategori'] == "Film") {
+                                        echo '<i class="bi bi-film"></i> ' . $p['nama_kategori'];
+                                    }
+                                    elseif($p['nama_kategori'] == "Lagu") {
+                                        echo '<i class="bi bi-music-note-beamed"></i> ' . $p['nama_kategori'];
+                                    }
+                                    elseif($p['nama_kategori'] == "Game") {
+                                        echo '<i class="bi bi-controller"></i> ' . $p['nama_kategori'];
+                                    }
+                                ?>
+
                             </div>
 
                             <h5 class="fw-bold"><?= $p['judul'] ?></h5>
@@ -211,7 +216,7 @@ $posts = ambilSemuaPostingan();
                             </p>
 
                             <?php if (!empty($p['gambar'])): ?>
-                                <img src="../../uploads/<?= $p['gambar'] ?>" class="post-img" alt="Post Image">
+                                <img src="uploads/<?= $p['gambar'] ?>" class="post-img" alt="Post Image">
                             <?php endif; ?>
                             
                             <div class="mt-3 pt-3 border-top d-flex gap-4 text-muted">
@@ -228,38 +233,7 @@ $posts = ambilSemuaPostingan();
     </div>
 </div>
 
-<div class="modal fade" id="uploadModal" tabindex="-1" aria-labelledby="uploadModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header border-0">
-                <h5 class="modal-title fw-bold" id="uploadModalLabel">Buat Review Baru</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <form action="../../index.php?action=simpan_post" method="POST" enctype="multipart/form-data">
-                <div class="modal-body">
-                    <div class="mb-3">
-                        <label class="form-label fw-semibold">Judul Review</label>
-                        <input type="text" name="judul" class="form-control" placeholder="Contoh: Atomic Habits..." required>
-                    </div>
-                    
-                    <div class="mb-3">
-                        <label class="form-label fw-semibold">Isi Review</label>
-                        <textarea name="isi" class="form-control" rows="3" placeholder="Bagaimana pendapatmu?"></textarea>
-                    </div>
 
-                    <div class="mb-3">
-                        <label class="form-label fw-semibold">Upload Foto</label>
-                        <input type="file" name="foto" class="form-control" required>
-                    </div>
-                </div>
-                <div class="modal-footer border-0">
-                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Batal</button>
-                    <button type="submit" class="btn btn-dark px-4">Posting</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 

@@ -7,4 +7,10 @@ if (!isset($_SESSION['login'])) {
 }
 
 echo "Selamat datang, Admin " . $_SESSION['nama'];
-echo "<br><a href='../../logout.php'>Logout</a>";
+echo "<br><a href='../../index.php?action=logout'>Logout</a>";
+?>
+
+isi seperti dashboard user hanya saja tidak ada profil dan tambah postingan
+- bisa menghapus semua postingan dan semua komentar
+
+
