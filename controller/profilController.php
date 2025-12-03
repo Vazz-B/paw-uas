@@ -46,7 +46,7 @@ function hapus_postingan(){
         exit();
     }
 
-    $post_id = $_SESSION['post_id'];
+    $post_id = $_POST['post_id'];
     $user_id = $_SESSION['user_id'];
 
     // Memanggil model untuk menghapus post beserta semua tabel relasi (komentar, like, rating).

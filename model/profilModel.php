@@ -13,7 +13,7 @@ function ambil_data_user($user_id){
     return mysqli_fetch_assoc($result);
 }
 
-function jumlah_postingan(){
+function jumlah_postingan($user_id){
     global $conn;
 
     $sql = "SELECT COUNT(*) AS jumlah FROM post WHERE user_id = ?";
@@ -33,5 +33,44 @@ function ambil_postingan_user($user_id){
     $sql = "SELECT * FROM post WHERE user_id = $user_id ORDER BY tanggal_post DESC";
     $result = mysqli_query($conn, $sql);
     return mysqli_fetch_all($result, MYSQLI_ASSOC);
+}
+
+function hapus_post($post_id, $user_id) {
+    global $conn;
+
+    // 1. Hapus LIKE KOMENTAR
+    $sqlLikeKomentar = "
+        DELETE lk FROM like_komentar lk
+        INNER JOIN komentar k ON lk.komentar_id = k.komentar_id
+        WHERE k.post_id = ?
+    ";
+    $stmt1 = mysqli_prepare($conn, $sqlLikeKomentar);
+    mysqli_stmt_bind_param($stmt1, "i", $post_id);
+    mysqli_stmt_execute($stmt1);
+
+    // 2. Hapus KOMENTAR
+    $sqlKomentar = "DELETE FROM komentar WHERE post_id = ?";
+    $stmt2 = mysqli_prepare($conn, $sqlKomentar);
+    mysqli_stmt_bind_param($stmt2, "i", $post_id);
+    mysqli_stmt_execute($stmt2);
+
+    // 3. Hapus LIKE POST
+    $sqlLikePost = "DELETE FROM like_post WHERE post_id = ?";
+    $stmt3 = mysqli_prepare($conn, $sqlLikePost);
+    mysqli_stmt_bind_param($stmt3, "i", $post_id);
+    mysqli_stmt_execute($stmt3);
+
+    // 4. Hapus RATING
+    $sqlRating = "DELETE FROM rating WHERE post_id = ?";
+    $stmt4 = mysqli_prepare($conn, $sqlRating);
+    mysqli_stmt_bind_param($stmt4, "i", $post_id);
+    mysqli_stmt_execute($stmt4);
+
+    // 5. Hapus POSTINGAN
+    $sqlPost = "DELETE FROM post WHERE post_id = ? AND user_id = ?";
+    $stmt5 = mysqli_prepare($conn, $sqlPost);
+    mysqli_stmt_bind_param($stmt5, "ii", $post_id, $user_id);
+
+    return mysqli_stmt_execute($stmt5);
 }
 ?>
