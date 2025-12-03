@@ -4,7 +4,11 @@ require_once 'controller/logoutController.php';
 require_once 'controller/daftarController.php';
 require_once 'controller/dashboardController.php';
 require_once 'controller/tambahPostinganController.php';
+
 require_once 'controller/profilController.php';
+
+require_once 'controller/rangkingController.php';
+
 
 $action = $_GET['action'] ?? 'login';
 
@@ -15,6 +19,11 @@ elseif ($action == "daftar") tampilDaftar();
 elseif ($action == "proses_daftar") prosesDaftar();
 elseif ($action == "cari_sekolah") cariSekolahAjax();
 elseif ($action == "dashboard") tampilDashboard();
+
 elseif ($action == "simpan_post") prosesSimpanPost();
-elseif ($action == "tampil_profil") tampil_profil();
-elseif ($action == "edit_bio") edit_bio();
+elseif ($action == "tampil_profil") tampilProfil();
+elseif ($action == "update_bio") update_bio();
+elseif ($action == "hapus_postingan") hapusPost();
+elseif ($action == "filter_buku") tampil_filter_buku();
+elseif ($action == "simpan_post") processSimpanPost();
+elseif ($action == "ranking") tampilRanking();
