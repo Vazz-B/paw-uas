@@ -142,7 +142,7 @@ $dataBuku = ambilPostinganBuku();
 
     <!-- FILTER TABS -->
     <div class="d-flex align-items-center py-4 border-bottom mb-4 sticky-top bg-white">
-        <a href="dashboard_user.php" class="filter-pill"><i class="bi bi-phone"></i> Semua</a>
+        <a href="index.php?action=dashboard" class="filter-pill"><i class="bi bi-phone"></i> Semua</a>
         <a class="filter-pill active"><i class="bi bi-book"></i> Buku</a>
         <a href="../../controller/postController.php?action=film" class="filter-pill">
             <i class="bi bi-film"></i> Film
