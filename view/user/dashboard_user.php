@@ -100,8 +100,9 @@
         .post-img {
             border-radius: 12px;
             width: 100%;
-            margin-top: 15px;
-            object-fit: cover;
+            margin-top: 10px;
+            max-height: 400px;
+            object-fit: contain;
         }
         
         .category-badge {
@@ -144,7 +145,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="profil.php">
+                        <a class="nav-link" href="index.php?action=tampil_profil">
                             <i class="bi bi-person"></i> Profil
                         </a>
                     </li>

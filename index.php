@@ -17,3 +17,4 @@ elseif ($action == "cari_sekolah") cariSekolahAjax();
 elseif ($action == "dashboard") tampilDashboard();
 elseif ($action == "simpan_post") prosesSimpanPost();
 elseif ($action == "tampil_profil") tampil_profil();
+elseif ($action == "edit_bio") edit_bio();

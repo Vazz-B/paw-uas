@@ -222,8 +222,8 @@ $data_user = $_SESSION;  // Ambil data dari session
             <div class="section-bio">
                 <div class="section-title">Bio</div>
                 <!-- Menampilkan bio langsung dari session -->
-                <form action="index.php?action=update_bio" method="POST">
-                    <textarea name="bio"><?= htmlspecialchars($_SESSION['bio']); ?></textarea>
+                <form action="index.php?action=edit_bio" method="POST">
+                    <textarea name="bio"><?= htmlspecialchars($_SESSION['bio'] ?? 'Belum ada Bio.'); ?></textarea>
                     <button type="submit">Update Bio</button>
                 </form>
             </div>
@@ -249,7 +249,7 @@ $data_user = $_SESSION;  // Ambil data dari session
                         </div>
 
                         <!-- Tombol Hapus -->
-                        <form action="index.php?action=hapus_post" 
+                        <form action="index.php?action=hapus_postingan" 
                             method="POST" 
                             style="margin-left:10px;">
                             <input type="hidden" name="post_id" value="<?= $post['post_id']; ?>">
