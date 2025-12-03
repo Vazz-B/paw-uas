@@ -3,11 +3,11 @@ session_start();
 
 if (isset($_SESSION['login'])) {
     if ($_SESSION['role'] == 'admin'){
-        header("Location: /UAS/paw-uas/view/admin/dashboard_admin.php");
+        header("Location: index.php?action=");
         exit;
     }
     else {
-        header("Location: /UAS/paw-uas/view/user/dashboard_user.php");
+        header("Location: index.php?action=dashboard");
         exit;
     }
 }
