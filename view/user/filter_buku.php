@@ -135,12 +135,12 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="" data-bs-toggle="modal" data-bs-target="#uploadModal">
-                            <i class="bi bi-plus-circle"></i> Tambah Postingan
+                            <i class="bi bi-plus-circle"></i> Create Post
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <i class="bi bi-trophy"></i> Rangking
+                        <a class="nav-link" href="index.php?action=ranking">
+                            <i class="bi bi-trophy"></i> Rank
                         </a>
                     </li>
                     <li class="nav-item">
@@ -160,11 +160,11 @@
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 bg-white min-vh-100">
             
             <div class="d-flex align-items-center py-4 border-bottom mb-4 sticky-top bg-white" style="z-index: 90;">
-                <a href="index.php?action=dashboard" class="filter-pill"><i class="bi bi-phone"></i> Semua</a>
-                <a href="index.php?action=filter_buku" class="filter-pill active"><i class="bi bi-book"></i> Buku</a>
-                <a href="#" class="filter-pill"><i class="bi bi-film"></i> Film</a>
+                <a href="index.php?action=dashboard" class="filter-pill"><i class="bi bi-phone"></i> All</a>
+                <a href="index.php?action=filter_buku" class="filter-pill active"><i class="bi bi-book"></i> Book</a>
+                <a href="index.php?action=filter_film" class="filter-pill"><i class="bi bi-film"></i> Movie</a>
                 <a href="#" class="filter-pill"><i class="bi bi-controller"></i> Game</a>
-                <a href="#" class="filter-pill"><i class="bi bi-music-note-beamed"></i> Lagu</a>
+                <a href="#" class="filter-pill"><i class="bi bi-music-note-beamed"></i> Music</a>
                 
                 <div class="ms-auto d-flex align-items-center">
                     <span class="me-2 text-muted small">Halo, <b><?= $_SESSION['nama'] ?></b></span>
