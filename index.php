@@ -23,5 +23,6 @@ elseif ($action == "tampil_profil") tampil_profil();
 elseif ($action == "edit_bio") edit_bio();
 elseif ($action == "hapus_postingan") hapus_postingan();
 elseif ($action == "filter_buku") tampil_filter_buku();
+elseif ($action == "filter_film") tampil_filter_film();
 elseif ($action == "simpan_post") prosesSimpanPost();
 elseif ($action == "ranking") tampilRanking();

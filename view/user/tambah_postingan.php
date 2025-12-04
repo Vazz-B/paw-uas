@@ -2,7 +2,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header border-0">
-                <h5 class="modal-title fw-bold" id="uploadModalLabel">Buat Review Baru</h5>
+                <h5 class="modal-title fw-bold" id="uploadModalLabel">Create New Post</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form action="index.php?action=simpan_post" method="POST" enctype="multipart/form-data">
@@ -11,16 +11,16 @@
                     <div class="mb-3">
                         <label class="form-label fw-semibold">Kategori</label>
                         <select name="kategori_id" class="form-select" required>
-                            <option value="">-- Pilih Kategori --</option>
-                            <option value="1">Buku</option>
-                            <option value="2">Film</option>
-                            <option value="3">Lagu</option>
-                            <option value="4">Game</option>
+                            <option value="">-- select category --</option>
+                            <option value="1">Book</option>
+                            <option value="2">Game</option>
+                            <option value="3">Music</option>
+                            <option value="4">Movie</option>
                         </select>
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label fw-semibold">Judul Postingan</label>
+                        <label class="form-label fw-semibold">Post Title</label>
                         <input type="text" name="judul" class="form-control" placeholder="Contoh: Atomic Habits..." required>
                     </div>
                     
@@ -35,8 +35,8 @@
                     </div>
                 </div>
                 <div class="modal-footer border-0">
-                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Batal</button>
-                    <button type="submit" class="btn btn-dark px-4">Posting</button>
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-dark px-4">Post</button>
                 </div>
             </form>
         </div>

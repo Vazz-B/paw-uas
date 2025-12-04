@@ -100,9 +100,8 @@
         .post-img {
             border-radius: 12px;
             width: 100%;
-            margin-top: 10px;
-            max-height: 400px;
-            object-fit: contain;
+            margin-top: 15px;
+            object-fit: cover;
         }
         
         .category-badge {
@@ -145,8 +144,8 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php?action=tampil_profil">
-                            <i class="bi bi-person"></i> Profile
+                        <a class="nav-link" href="#">
+                            <i class="bi bi-person"></i> Profil
                         </a>
                     </li>
                     <li class="nav-item mt-5">
@@ -161,15 +160,14 @@
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 bg-white min-vh-100">
             
             <div class="d-flex align-items-center py-4 border-bottom mb-4 sticky-top bg-white" style="z-index: 90;">
-                <a href="index.php?action=dashboard" class="filter-pill active"><i class="bi bi-phone"></i> All</a>
+                <a href="index.php?action=dashboard" class="filter-pill"><i class="bi bi-phone"></i> All</a>
                 <a href="index.php?action=filter_buku" class="filter-pill"><i class="bi bi-book"></i> Book</a>
-                <a href="index.php?action=filter_buku" class="filter-pill active"><i class="bi bi-book"></i> Book</a>
-                <a href="index.php?action=filter_film" class="filter-pill"><i class="bi bi-film"></i> Movie</a>
+                <a href="index.php?action=filter_film" class="filter-pill active"><i class="bi bi-film"></i> Movie</a>
                 <a href="#" class="filter-pill"><i class="bi bi-controller"></i> Game</a>
                 <a href="#" class="filter-pill"><i class="bi bi-music-note-beamed"></i> Music</a>
                 
                 <div class="ms-auto d-flex align-items-center">
-                    <span class="me-2 text-muted small">Hello, <b><?= $_SESSION['nama'] ?></b></span>
+                    <span class="me-2 text-muted small">Halo, <b><?= $_SESSION['nama'] ?></b></span>
                     <img src="https://ui-avatars.com/api/?name=<?= $_SESSION['nama'] ?>&background=random" class="user-avatar" width="30">
                 </div>
             </div>
@@ -180,7 +178,7 @@
                     <?php if (empty($posts)): ?>
                         <div class="text-center py-5 text-muted">
                             <i class="bi bi-inbox fs-1"></i>
-                            <p>No postings available.</p>
+                            <p>Belum ada postingan.</p>
                         </div>
                     <?php endif; ?>
 
