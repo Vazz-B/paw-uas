@@ -163,7 +163,7 @@
             <div class="d-flex align-items-center py-4 border-bottom mb-4 sticky-top bg-white" style="z-index: 90;">
                 <a href="index.php?action=dashboard" class="filter-pill active"><i class="bi bi-phone"></i> Semua</a>
                 <a href="index.php?action=filter_buku" class="filter-pill"><i class="bi bi-book"></i> Buku</a>
-                <a href="#" class="filter-pill"><i class="bi bi-film"></i> Film</a>
+                <a href="index.php?action=filter_film" class="filter-pill"><i class="bi bi-film"></i> Film</a>
                 <a href="#" class="filter-pill"><i class="bi bi-controller"></i> Game</a>
                 <a href="#" class="filter-pill"><i class="bi bi-music-note-beamed"></i> Lagu</a>
                 

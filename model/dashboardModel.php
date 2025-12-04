@@ -57,3 +57,24 @@ function ambil_postingan_buku() {
 
     return mysqli_fetch_all($result, MYSQLI_ASSOC);
 }
+
+function ambil_potingan_film() {
+    global $conn;
+
+    $kategori_id = 4; // Film
+
+    $query = "SELECT post.*, user.nama AS nama_user, kategori.nama_kategori
+              FROM post
+              JOIN user ON post.user_id = user.user_id
+              JOIN kategori ON post.kategori_id = kategori.kategori_id
+              WHERE post.kategori_id = $kategori_id
+              ORDER BY post.post_id DESC";
+
+    $result = mysqli_query($conn, $query);
+
+    if (!$result) {
+        die('Query Error: ' . mysqli_error($conn));
+    }
+
+    return mysqli_fetch_all($result, MYSQLI_ASSOC);
+}
