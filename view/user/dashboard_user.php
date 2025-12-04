@@ -149,7 +149,7 @@
                             <i class="bi bi-person"></i> Profil
                         </a>
                     </li>
-                    <li class="nav-item mt-5">
+                    <li class="nav-item ">
                         <a class="nav-link text-danger" href="index.php?action=logout">
                             <i class="bi bi-box-arrow-left"></i> Logout
                         </a>
@@ -196,16 +196,16 @@
                             <div class="category-badge">
                                 <?php
                                     if ($p['nama_kategori'] == "Buku") {
-                                        echo '<i class="bi bi-book-fill me-1"></i>' . $p['nama_kategori'];
+                                        echo '<i class="bi bi-book-fill me-1"></i>' . "Book";
                                     }
                                     elseif($p['nama_kategori'] == "Film") {
-                                        echo '<i class="bi bi-film"></i> ' . $p['nama_kategori'];
+                                        echo '<i class="bi bi-film"></i> ' . "Movie";
                                     }
                                     elseif($p['nama_kategori'] == "Lagu") {
-                                        echo '<i class="bi bi-music-note-beamed"></i> ' . $p['nama_kategori'];
+                                        echo '<i class="bi bi-music-note-beamed"></i> ' . "Music";
                                     }
                                     elseif($p['nama_kategori'] == "Game") {
-                                        echo '<i class="bi bi-controller"></i> ' . $p['nama_kategori'];
+                                        echo '<i class="bi bi-controller"></i> ' . "Game";
                                     }
                                 ?>
 

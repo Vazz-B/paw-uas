@@ -185,7 +185,7 @@
     </div>
 
     <!-- TAB KECIL KESSELURUHAN / PER SEKOLAH -->
-    <div class="d-flex bg-light p-1 rounded-pill mb-4" style="max-width:500px;">
+    <div class="d-flex bg-light p-1 rounded-pill mb-4 w-100">
         <a href="index.php?action=ranking&type=post&mode=all" 
            class="flex-fill text-center py-2 rounded-pill fw-semibold
                 <?= ($_GET['mode'] ?? 'all') == 'all' ? 'bg-white shadow-sm' : 'text-muted' ?>">
