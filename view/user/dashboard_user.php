@@ -286,29 +286,8 @@
                                     </a>
                                 <!-- Nizam -->
                                 </div>
-                            </div>
-                    </div>
-
-
-                            <h5 class="fw-bold"><?= $p['judul'] ?></h5>
-                            
-                            <p class="text-secondary">
-                                <?= !empty($p['isi']) ? $p['isi'] : 'Tidak ada deskripsi tambahan untuk review ini.' ?>
-                            </p>
-                                    
-                            <?php if (!empty($p['gambar'])): ?>
-                                <img src="uploads/<?= $p['gambar'] ?>" class="post-img" alt="Post Image">
-                            <?php endif; ?>
-                            
-                            <div class="mt-3 pt-3 border-top d-flex gap-4 text-muted">
-                                <span><i class="bi bi-heart"></i> Suka</span>
-                                <span><i class="bi bi-chat"></i> Komentar</span>
-                                <span class="ms-auto"><i class="bi bi-share"></i></span>
-                            </div>
-                        </div>
+                    </div>                            
                     <?php endforeach; ?>
-
-
                 </div>
             </main>
         </div>
