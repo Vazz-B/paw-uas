@@ -118,6 +118,10 @@
             margin-bottom: 10px;
         }
 
+        .btn-like {
+            color: rgba(33, 37, 41, 0.75);
+        }
+
         .komen {
             text-decoration: none;
             color: rgba(33, 37, 41, 0.75);
