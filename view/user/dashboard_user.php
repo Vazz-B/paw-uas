@@ -130,44 +130,44 @@
 </head>
 
 <body>
-<div class="container-fluid">
-    <div class="row">
-        
-        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse">
-            <div class="position-sticky pt-0 px-3">
-                <h4 class="mb-4 px-2 fw-bold d-flex align-items-center justify-content-center">
-                    <img src="logo.png" width="100" height="100" alt="Logo">
-                </h4>
-                
-                <ul class="nav flex-column">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">
-                            <i class="bi bi-house-door-fill"></i> Home
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="" data-bs-toggle="modal" data-bs-target="#uploadModal">
-                            <i class="bi bi-plus-circle"></i> Create Post
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.php?action=ranking">
-                            <i class="bi bi-trophy"></i> Rank
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.php?action=tampil_profil">
-                            <i class="bi bi-person"></i> Profil
-                        </a>
-                    </li>
-                    <li class="nav-item ">
-                        <a class="nav-link text-danger" href="index.php?action=logout">
-                            <i class="bi bi-box-arrow-left"></i> Logout
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+    <div class="container-fluid">
+        <div class="row">
+
+            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse">
+                <div class="position-sticky pt-0 px-3">
+                    <h4 class="mb-4 px-2 fw-bold d-flex align-items-center justify-content-center">
+                        <img src="logo.png" width="100" height="100" alt="Logo">
+                    </h4>
+
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">
+                                <i class="bi bi-house-door-fill"></i> Home
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="" data-bs-toggle="modal" data-bs-target="#uploadModal">
+                                <i class="bi bi-plus-circle"></i> Create Post
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.php?action=ranking">
+                                <i class="bi bi-trophy"></i> Rank
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.php?action=tampil_profil">
+                                <i class="bi bi-person"></i> Profil
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link text-danger" href="index.php?action=logout">
+                                <i class="bi bi-box-arrow-left"></i> Logout
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
 
             <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse">
                 <div class="position-sticky pt-0 px-3">
@@ -244,14 +244,11 @@
                                     <?php
                                     if ($p['nama_kategori'] == "Buku") {
                                         echo '<i class="bi bi-book-fill me-1"></i>' . "Book";
-                                    }
-                                    elseif($p['nama_kategori'] == "Film") {
+                                    } elseif ($p['nama_kategori'] == "Film") {
                                         echo '<i class="bi bi-film"></i> ' . "Movie";
-                                    }
-                                    elseif($p['nama_kategori'] == "Lagu") {
+                                    } elseif ($p['nama_kategori'] == "Lagu") {
                                         echo '<i class="bi bi-music-note-beamed"></i> ' . "Music";
-                                    }
-                                    elseif($p['nama_kategori'] == "Game") {
+                                    } elseif ($p['nama_kategori'] == "Game") {
                                         echo '<i class="bi bi-controller"></i> ' . "Game";
                                     }
                                     ?>
@@ -284,11 +281,11 @@
                                         <i class="bi bi-chat"></i>
                                         <span class="ms-1"><?= ($p['jumlah_komentar'] ?? 0) ?> Comment</span>
                                     </a>
-                                <!-- Nizam -->
+                                    <!-- Nizam -->
                                 </div>
-                    </div>                            
-                    <?php endforeach; ?>
-                </div>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
             </main>
         </div>
     </div>
