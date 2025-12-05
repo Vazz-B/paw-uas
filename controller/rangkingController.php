@@ -1,22 +1,33 @@
 <?php
-require_once __DIR__ . '/../model/rangkingModel.php';
+require_once "./model/rangkingModel.php";
 
-function tampilRanking() {
-    session_start();
-
-    if (!isset($_SESSION['login'])) {
-        header("Location: index.php?action=login");
-        exit;
-    }
-
-    // mode ranking
+function tampilrangking() {
+    $type = $_GET['type'] ?? 'post';
     $mode = $_GET['mode'] ?? 'all';
+    $sekolah_id = $_GET['sekolah_id'] ?? null;
 
-    if ($mode == "sekolah" && isset($_GET['sekolah_id'])) {
-        $posts = ambilRankingPerSekolah($_GET['sekolah_id']);
-    } else {
-        $posts = ambilRankingKeseluruhan();
+    // --- POSTINGAN ---
+    if ($type == 'post') {
+        if ($mode == "all") {
+            $result = getTopPostAll();
+        } else {
+            $result = getTopPostBySekolah($sekolah_id);
+        }
     }
 
-    require_once __DIR__ . '/../view/user/rangking.php';
+    // --- KOMENTAR ---
+    else if ($type == 'comment') {
+        if ($mode == "all") {
+            $result = getTopCommentAll();
+        } else {
+            $result = getTopCommentBySekolah($sekolah_id);
+        }
+    }
+
+    $posts = [];
+    if ($result) {
+        $posts = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    }
+
+    include "./view/user/rangking.php";
 }

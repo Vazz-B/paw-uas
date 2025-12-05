@@ -216,7 +216,7 @@
                             <p class="text-secondary">
                                 <?= !empty($p['isi']) ? $p['isi'] : 'Tidak ada deskripsi tambahan untuk review ini.' ?>
                             </p>
-
+                                    
                             <?php if (!empty($p['gambar'])): ?>
                                 <img src="uploads/<?= $p['gambar'] ?>" class="post-img" alt="Post Image">
                             <?php endif; ?>

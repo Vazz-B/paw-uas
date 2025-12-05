@@ -1,48 +1,58 @@
 <?php
 require_once __DIR__ . '/../config/koneksi.php';
 
-function ambilRankingKeseluruhan() {
+function getTopPostAll() {
     global $conn;
 
-    $sql = "SELECT 
-                p.post_id, p.kategori_id, p.judul, p.isi, p.gambar, p.tanggal_post,
-                u.nama AS nama_user,
-                k.nama_kategori,
-                COUNT(r.rating_id) AS total_rating
-            FROM rating r
-            JOIN post p ON r.post_id = p.post_id
+    $sql = "SELECT p.*, u.nama AS nama_user, k.nama_kategori,
+            (SELECT COUNT(*) FROM komentar WHERE post_id = p.post_id) AS jumlah_komentar
+            FROM post p
             JOIN user u ON p.user_id = u.user_id
             LEFT JOIN kategori k ON p.kategori_id = k.kategori_id
-            GROUP BY r.post_id
-            ORDER BY total_rating DESC";
+            ORDER BY p.jumlah_like DESC
+            LIMIT 10";
 
-    $stmt = mysqli_prepare($conn, $sql);
-    mysqli_stmt_execute($stmt);
-    $res = mysqli_stmt_get_result($stmt);
-
-    return mysqli_fetch_all($res, MYSQLI_ASSOC);
+    return mysqli_query($conn, $sql);
 }
 
-function ambilRankingPerSekolah($sekolah_id) {
+function getTopPostBySekolah($sekolah_id) {
     global $conn;
 
-    $sql = "SELECT 
-                p.post_id, p.kategori_id, p.judul, p.isi, p.gambar, p.tanggal_post,
-                u.nama AS nama_user,
-                k.nama_kategori,
-                COUNT(r.rating_id) AS total_rating
-            FROM rating r
-            JOIN post p ON r.post_id = p.post_id
+    $sql = "SELECT p.*, u.nama AS nama_user, k.nama_kategori,
+            (SELECT COUNT(*) FROM komentar WHERE post_id = p.post_id) AS jumlah_komentar
+            FROM post p
             JOIN user u ON p.user_id = u.user_id
             LEFT JOIN kategori k ON p.kategori_id = k.kategori_id
-            WHERE r.sekolah_id = ?
-            GROUP BY r.post_id
-            ORDER BY total_rating DESC";
+            WHERE u.sekolah_id = '$sekolah_id'
+            ORDER BY p.jumlah_like DESC
+            LIMIT 10";
 
-    $stmt = mysqli_prepare($conn, $sql);
-    mysqli_stmt_bind_param($stmt, "i", $sekolah_id);
-    mysqli_stmt_execute($stmt);
-    $res = mysqli_stmt_get_result($stmt);
+    return mysqli_query($conn, $sql);
+}
 
-    return mysqli_fetch_all($res, MYSQLI_ASSOC);
+
+
+function getTopCommentAll() {
+    global $conn;
+
+    $sql = "SELECT c.*, u.nama AS nama_user
+            FROM komentar c
+            JOIN user u ON c.user_id = u.user_id
+            ORDER BY c.jumlah_like DESC
+            LIMIT 10";
+
+    return mysqli_query($conn, $sql);
+}
+
+function getTopCommentBySekolah($sekolah_id) {
+    global $conn;
+
+    $sql = "SELECT c.*, u.nama AS nama_user
+            FROM komentar c
+            JOIN user u ON c.user_id = u.user_id
+            WHERE u.sekolah_id = '$sekolah_id'
+            ORDER BY c.jumlah_like DESC
+            LIMIT 10";
+
+    return mysqli_query($conn, $sql);
 }
