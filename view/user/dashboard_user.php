@@ -130,9 +130,44 @@
 </head>
 
 <body>
-
-    <div class="container-fluid">
-        <div class="row">
+<div class="container-fluid">
+    <div class="row">
+        
+        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse">
+            <div class="position-sticky pt-0 px-3">
+                <h4 class="mb-4 px-2 fw-bold d-flex align-items-center justify-content-center">
+                    <img src="logo.png" width="100" height="100" alt="Logo">
+                </h4>
+                
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">
+                            <i class="bi bi-house-door-fill"></i> Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="" data-bs-toggle="modal" data-bs-target="#uploadModal">
+                            <i class="bi bi-plus-circle"></i> Create Post
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php?action=ranking">
+                            <i class="bi bi-trophy"></i> Rank
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php?action=tampil_profil">
+                            <i class="bi bi-person"></i> Profil
+                        </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link text-danger" href="index.php?action=logout">
+                            <i class="bi bi-box-arrow-left"></i> Logout
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
 
             <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse">
                 <div class="position-sticky pt-0 px-3">
@@ -208,13 +243,16 @@
                                 <div class="category-badge">
                                     <?php
                                     if ($p['nama_kategori'] == "Buku") {
-                                        echo '<i class="bi bi-book-fill me-1"></i>' . $p['nama_kategori'];
-                                    } elseif ($p['nama_kategori'] == "Film") {
-                                        echo '<i class="bi bi-film"></i> ' . $p['nama_kategori'];
-                                    } elseif ($p['nama_kategori'] == "Lagu") {
-                                        echo '<i class="bi bi-music-note-beamed"></i> ' . $p['nama_kategori'];
-                                    } elseif ($p['nama_kategori'] == "Game") {
-                                        echo '<i class="bi bi-controller"></i> ' . $p['nama_kategori'];
+                                        echo '<i class="bi bi-book-fill me-1"></i>' . "Book";
+                                    }
+                                    elseif($p['nama_kategori'] == "Film") {
+                                        echo '<i class="bi bi-film"></i> ' . "Movie";
+                                    }
+                                    elseif($p['nama_kategori'] == "Lagu") {
+                                        echo '<i class="bi bi-music-note-beamed"></i> ' . "Music";
+                                    }
+                                    elseif($p['nama_kategori'] == "Game") {
+                                        echo '<i class="bi bi-controller"></i> ' . "Game";
                                     }
                                     ?>
 
@@ -249,8 +287,28 @@
                                 <!-- Nizam -->
                                 </div>
                             </div>
-                        <?php endforeach; ?>
                     </div>
+
+
+                            <h5 class="fw-bold"><?= $p['judul'] ?></h5>
+                            
+                            <p class="text-secondary">
+                                <?= !empty($p['isi']) ? $p['isi'] : 'Tidak ada deskripsi tambahan untuk review ini.' ?>
+                            </p>
+                                    
+                            <?php if (!empty($p['gambar'])): ?>
+                                <img src="uploads/<?= $p['gambar'] ?>" class="post-img" alt="Post Image">
+                            <?php endif; ?>
+                            
+                            <div class="mt-3 pt-3 border-top d-flex gap-4 text-muted">
+                                <span><i class="bi bi-heart"></i> Suka</span>
+                                <span><i class="bi bi-chat"></i> Komentar</span>
+                                <span class="ms-auto"><i class="bi bi-share"></i></span>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+
+
                 </div>
             </main>
         </div>
