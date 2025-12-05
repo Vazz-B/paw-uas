@@ -9,6 +9,9 @@ require_once 'controller/profilController.php';
 
 require_once 'controller/rangkingController.php';
 
+require_once 'controller/likeKomentarController.php';
+require_once 'controller/komentarUserController.php';
+require_once 'controller/likePostController.php';
 
 $action = $_GET['action'] ?? 'login';
 
@@ -26,3 +29,8 @@ elseif ($action == "filter_buku") tampil_filter_buku();
 elseif ($action == "filter_film") tampil_filter_film();
 elseif ($action == "simpan_post") prosesSimpanPost();
 elseif ($action == "ranking") tampilRanking();
+
+elseif ($action == "komentar_user") tampilKomentarUser();
+elseif ($action == "simpan_komentar_user") simpanKomentarUser();
+elseif ($action == "like_post") likePostAction();
+elseif ($action == "like_komentar") likeKomentarAction();
