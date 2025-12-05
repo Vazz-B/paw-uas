@@ -16,7 +16,6 @@ function prosesLogin() {
     $result = cekUser($nama, $password);
 
     if ($result) {
-        // Simpan semua data penting ke session
         $_SESSION['login'] = true;
         $_SESSION['user_id'] = $result['user_id'];
         $_SESSION['nama'] = $result['nama'];

@@ -148,7 +148,7 @@
                             <i class="bi bi-person"></i> Profil
                         </a>
                     </li>
-                    <li class="nav-item mt-5">
+                    <li class="nav-item">
                         <a class="nav-link text-danger" href="index.php?action=logout">
                             <i class="bi bi-box-arrow-left"></i> Logout
                         </a>
