@@ -23,7 +23,7 @@ function proses_login() {
 
         // Redirect berdasarkan role
         if ($result['role'] == "admin") {
-            header("Location: /UAS/paw-uas/view/admin/dashboard_admin.php?action=dashboard_admin");
+            header("Location: /UAS/paw-uas/index.php?action=dashboard_admin");
         } else {
             header("Location: /UAS/paw-uas/index.php?action=dashboard");
         }

@@ -137,7 +137,7 @@
 
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link active" href="index.php?action=dashboard_admin">
+                            <a class="nav-link active" href="index.php?action=dashboard">
                                 <i class="bi bi-house-door-fill"></i> Home
                             </a>
                         </li>
@@ -158,10 +158,10 @@
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 bg-white min-vh-100">
 
                 <div class="d-flex align-items-center py-4 border-bottom mb-4 sticky-top bg-white" style="z-index: 90;">
-                    <a href="index.php?action=dashboard_admin" class="filter-pill active"><i class="bi bi-phone"></i> All</a>
+                    <a href="index.php?action=dashboard_admin" class="filter-pill"><i class="bi bi-phone"></i> All</a>
                     <a href="index.php?action=filter_buku_admin" class="filter-pill"><i class="bi bi-book"></i> Book</a>
                     <a href="index.php?action=filter_film_admin" class="filter-pill"><i class="bi bi-film"></i> Movie</a>
-                    <a href="index.php?action=filter_game_admin" class="filter-pill"><i class="bi bi-controller"></i> Game</a>
+                    <a href="index.php?action=filter_game_admin" class="filter-pill active"><i class="bi bi-controller"></i> Game</a>
                     <a href="index.php?action=filter_lagu_admin" class="filter-pill"><i class="bi bi-music-note-beamed"></i> Music</a>
 
                     <div class="ms-auto d-flex align-items-center">

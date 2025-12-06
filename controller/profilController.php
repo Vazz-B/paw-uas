@@ -1,7 +1,9 @@
 <?php
 require_once __DIR__ . '/../model/profilModel.php';
+require_once "./config/cek_role.php";
 
 function tampil_profil(){
+    untuk_user();
     session_start();
 
     if (!isset($_SESSION['login'])){
@@ -22,6 +24,7 @@ function tampil_profil(){
 }
 
 function edit_bio(){
+    untuk_user();
     session_start();
 
     if (!isset($_SESSION['login'])){
@@ -39,6 +42,7 @@ function edit_bio(){
 }
 
 function hapus_postingan(){
+    untuk_user();
     session_start();
 
     if (!isset($_SESSION['login'])){

@@ -1,11 +1,11 @@
 <?php
-require_once "./model/rangkingModel.php";
+require_once "./model/admin/admin_rangking_model.php";
 require_once "./config/cek_role.php";
 
 
 
-function tampilrangking() {
-    untuk_user();
+function admin_tampilrangking() {
+    untuk_admin();
     
     $type = $_GET['type'] ?? 'postingan';
     $mode = $_GET['mode'] ?? 'all';
@@ -14,18 +14,18 @@ function tampilrangking() {
     // --- POSTINGAN ---
     if ($type == 'postingan') {
         if ($mode == "all") {
-            $result = rangking_postingan_keseluruhan();
+            $result = admin_rangking_postingan_keseluruhan();
         } else {
-            $result = rangking_postingan_persekolah($sekolah_id);
+            $result = admin_rangking_postingan_persekolah($sekolah_id);
         }
     }
 
     // --- KOMENTAR ---
     else if ($type == 'komentar') {
         if ($mode == "all") {
-            $result = rangking_komentar_keseluruhan();
+            $result = admin_rangking_komentar_keseluruhan();
         } else {
-            $result = rangking_komentar_persekolah($sekolah_id);
+            $result = admin_rangking_komentar_persekolah($sekolah_id);
         }
     }
 
@@ -40,12 +40,12 @@ function tampilrangking() {
 
 
 // nama sekolah otomatis
-function filter_sekolah() {
+function admin_filter_sekolah() {
     untuk_user();
 
     $keyword = trim($_GET['keyword'] ?? '');
     header('Content-Type: application/json'); // penting
-    echo json_encode(sekolah($keyword));
+    echo json_encode(cek_filter_sekolah($keyword));
 }
 
 

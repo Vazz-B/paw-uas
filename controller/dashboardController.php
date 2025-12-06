@@ -5,9 +5,10 @@ require_once __DIR__ . '/../model/dashboardModel.php';
 require_once __DIR__ . '/../model/likePostModel.php';
 require_once __DIR__ . '/../model/komentarUserModel.php';
 // Nizam
+require_once "./config/cek_role.php";
 
 function tampil_dashboard() {
-    session_start();
+    untuk_user();
 
     if (!isset($_SESSION['login'])) {
         header("Location: index.php?action=login");
