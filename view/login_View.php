@@ -3,7 +3,7 @@ session_start();
 
 if (isset($_SESSION['login'])) {
     if ($_SESSION['role'] == 'admin'){
-        header("Location: index.php?action=");
+        header("Location: index.php?action=dashboard_admin");
         exit;
     }
     else {
