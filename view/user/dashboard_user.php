@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - Minimal Review</title>
+    <title>Dashboard - RevYou</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
@@ -35,7 +35,8 @@
             color: #333;
             margin-bottom: 10px;
             padding: 10px 20px;
-            border-radius: 30px; /* Membuat tombol bulat */
+            border-radius: 30px;
+            /* Membuat tombol bulat */
             display: flex;
             align-items: center;
             gap: 10px;
@@ -68,7 +69,7 @@
             margin-right: 5px;
             transition: 0.2s;
         }
-        
+
         .filter-pill.active {
             background: #000;
             color: #fff;
@@ -87,7 +88,7 @@
             background: #fff;
             margin-bottom: 25px;
             padding: 20px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
         }
 
         .user-avatar {
@@ -111,7 +112,7 @@
             object-fit: contain;
         }
 
-        
+
         .category-badge {
             background-color: #f1f3f5;
             color: #555;
@@ -250,13 +251,11 @@
                                     </a>
                                 </div>
                             </div>
-                        
                         <?php endforeach; ?>
                     </div>
-
                 </div>
-            </div>
-        </main>
+            </main>
+        </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>

@@ -83,22 +83,22 @@ if (isset($_SESSION['login'])) {
     <div class="text-center mb-4">
         <img src="logo.png" width="55" class="mb-2">
         <div class="title">Login RevYou</div>
-        <div class="subtitle">Masuk untuk mengakses review favoritmu</div>
+        <div class="subtitle">Log in to access your favorite reviews</div>
     </div>
 
     <form action="index.php?action=proses_login" method="POST">
 
         <label class="fw-semibold mb-1">Username</label>
-        <input type="text" name="nama" class="form-control mb-3" placeholder="Masukkan username" required>
+        <input type="text" name="nama" class="form-control mb-3" placeholder="username" required>
 
         <label class="fw-semibold mb-1">Password</label>
-        <input type="password" name="password" class="form-control mb-4" placeholder="Masukkan password" required>
+        <input type="password" name="password" class="form-control mb-4" placeholder="password" required>
 
         <button type="submit" class="btn btn-login w-100">Login</button>
 
         <p class="text-center mt-3">
-            Belum punya akun?
-            <a href="index.php?action=daftar" class="fw-bold">Daftar Sekarang</a>
+            Don't have an account?
+            <a href="index.php?action=daftar" class="fw-bold">Register now</a>
         </p>
     </form>
 
