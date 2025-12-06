@@ -131,7 +131,7 @@
                 
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">
+                        <a class="nav-link active" href="index.php?action=dashboard">
                             <i class="bi bi-house-door-fill"></i> Home
                         </a>
                     </li>
@@ -141,13 +141,13 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php?action=ranking">
+                        <a class="nav-link" href="index.php?action=rangking">
                             <i class="bi bi-trophy"></i> Rank
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <i class="bi bi-person"></i> Profil
+                        <a class="nav-link" href="index.php?action=tampil_profil">
+                            <i class="bi bi-person"></i> Profile
                         </a>
                     </li>
                     <li class="nav-item">

@@ -1,7 +1,12 @@
 <?php
 require_once __DIR__ . '/../model/dashboardModel.php';
 
-function tampilDashboard() {
+// Nizam
+require_once __DIR__ . '/../model/likePostModel.php';
+require_once __DIR__ . '/../model/komentarUserModel.php';
+// Nizam
+
+function tampil_dashboard() {
     session_start();
 
     if (!isset($_SESSION['login'])) {
@@ -10,7 +15,22 @@ function tampilDashboard() {
     }
 
     // Ambil data postingan dari model
-    $posts = ambilSemuaPostingan();
+    $posts = ambil_semua_postingan();
+
+    // Nizam
+    foreach ($posts as $idx => $p) {
+        $post_id = intval($p['post_id']);
+        $posts[$idx]['jumlah_like'] = countLikesPost($post_id);
+
+        if (isset($_SESSION['user_id'])) {
+            $posts[$idx]['user_has_liked'] = hasLikedPost($post_id, $_SESSION['user_id']);
+        } else {
+            $posts[$idx]['user_has_liked'] = false;
+        }
+
+        // Nizam
+        $posts[$idx]['jumlah_komentar'] = countKomentarByPost($post_id);
+    }
 
     // Kirim ke view
     require_once __DIR__ . '/../view/user/dashboard_user.php';

@@ -16,7 +16,7 @@ function cariSekolah($keyword) {
 }
 
 // Tambahkan sekolah jika belum ada
-function tambahSekolahJikaBelumAda($asal_sekolah) {
+function tambah_sekolah_jika_belum_ada($asal_sekolah) {
     global $conn;
 
     // Cek dulu
@@ -39,7 +39,7 @@ function tambahSekolahJikaBelumAda($asal_sekolah) {
 }
 
 // Daftarkan user baru
-function daftarUserBaru($nama, $email, $password, $sekolah_id) {
+function daftar_user_baru($nama, $email, $password, $sekolah_id) {
     global $conn;
 
     $sql = "INSERT INTO user (nama, email, password, sekolah_id, role) VALUES (?,?,?,?, 'user')";

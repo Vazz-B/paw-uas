@@ -139,13 +139,13 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php?action=ranking">
+                        <a class="nav-link" href="index.php?action=rangking">
                             <i class="bi bi-trophy"></i> Rank
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">
-                            <i class="bi bi-person"></i> Profil
+                            <i class="bi bi-person"></i> Profile
                         </a>
                     </li>
                     <li class="nav-item">

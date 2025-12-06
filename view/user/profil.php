@@ -198,12 +198,12 @@ $data_user = $_SESSION;  // Ambil data dari session
     </style>
 </head>
 <body>
-    <div class="header">Profil</div>
+    <div class="header">Profile</div>
 
     <div class="profil-container">
         
         <div class="kembali">
-            <a href="index.php?action=dashboard">Kembali</a>
+            <a href="index.php?action=dashboard">Back</a>
         </div>
 
         <div class="card">
@@ -223,7 +223,7 @@ $data_user = $_SESSION;  // Ambil data dari session
                 <div class="section-title">Bio</div>
                 <!-- Menampilkan bio langsung dari session -->
                 <form action="index.php?action=edit_bio" method="POST">
-                    <textarea name="bio"><?= htmlspecialchars($_SESSION['bio'] ?? 'Belum ada Bio.'); ?></textarea>
+                    <textarea name="bio"><?= htmlspecialchars($_SESSION['bio'] ?? 'No biography available.'); ?></textarea>
                     <button type="submit">Update Bio</button>
                 </form>
             </div>
@@ -231,7 +231,7 @@ $data_user = $_SESSION;  // Ambil data dari session
         </div>
 
         <div class="postingan">
-            <div class="section-title">Postingan Saya (<?= $_SESSION['jumlah_postingan'] ?? 0; ?>)</div>
+            <div class="section-title">My Post (<?= $_SESSION['jumlah_postingan'] ?? 0; ?>)</div>
 
             <div class="postingan-list">
 
@@ -240,7 +240,7 @@ $data_user = $_SESSION;  // Ambil data dari session
                     <div class="post-card">
 
                         <!-- Thumbnail gambar -->
-                        <img src="uploads/<?= $post['gambar']; ?>" class="post-thumbnail" alt="gambar">
+                        <img src="uploads/<?= $post['gambar']; ?>" class="post-thumbnail" alt="image">
 
                         <!-- Info postingan -->
                         <div class="post-info">
@@ -254,7 +254,7 @@ $data_user = $_SESSION;  // Ambil data dari session
                             style="margin-left:10px;">
                             <input type="hidden" name="post_id" value="<?= $post['post_id']; ?>">
                             <button class="btn-hapus" onclick="return confirm('Hapus postingan ini?')">
-                                Hapus
+                                Delete
                             </button>
                         </form>
 
@@ -262,7 +262,7 @@ $data_user = $_SESSION;  // Ambil data dari session
                 <?php endforeach; ?>
 
             <?php else: ?>
-                <p style="text-align:center; color:#777;">Belum ada postingan</p>
+                <p style="text-align:center; color:#777;">No postings available.</p>
             <?php endif; ?>
 
             </div>

@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/../config/koneksi.php';
 
-function getTopPostAll() {
+function rangking_postingan_keseluruhan() {
     global $conn;
 
     $sql = "SELECT p.*, u.nama AS nama_user, k.nama_kategori,
@@ -15,7 +15,7 @@ function getTopPostAll() {
     return mysqli_query($conn, $sql);
 }
 
-function getTopPostBySekolah($sekolah_id) {
+function rangking_postingan_persekolah($sekolah_id) {
     global $conn;
 
     $sql = "SELECT p.*, u.nama AS nama_user, k.nama_kategori,
@@ -32,7 +32,7 @@ function getTopPostBySekolah($sekolah_id) {
 
 
 
-function getTopCommentAll() {
+function rangking_komentar_keseluruhan() {
     global $conn;
 
     $sql = "SELECT c.*, u.nama AS nama_user
@@ -44,7 +44,7 @@ function getTopCommentAll() {
     return mysqli_query($conn, $sql);
 }
 
-function getTopCommentBySekolah($sekolah_id) {
+function rangking_komentar_persekolah($sekolah_id) {
     global $conn;
 
     $sql = "SELECT c.*, u.nama AS nama_user
@@ -55,4 +55,18 @@ function getTopCommentBySekolah($sekolah_id) {
             LIMIT 10";
 
     return mysqli_query($conn, $sql);
+}
+
+
+function sekolah($keyword) {
+    global $conn;
+
+    $keyword = "%$keyword%";
+    $sql = "SELECT * FROM sekolah WHERE nama_sekolah LIKE ?";
+    $stmt = mysqli_prepare($conn, $sql);
+    mysqli_stmt_bind_param($stmt, "s", $keyword);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+
+    return mysqli_fetch_all($result, MYSQLI_ASSOC);
 }

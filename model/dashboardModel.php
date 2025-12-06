@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/../config/koneksi.php';
 
-function ambilSemuaPostingan() {
+function ambil_semua_postingan() {
     global $conn;
 
     $sql = "SELECT 
