@@ -163,11 +163,11 @@
                     <input type="hidden" name="mode" value="filter_sekolah">
 
                     <div class="input-group" style="max-width: 400px;">
-                    <input type="text" id="asal_sekolah" class="form-control" placeholder="Ketik nama sekolah..." autocomplete="off">
+                    <input type="text" id="asal_sekolah" class="form-control" placeholder="enter the school name..." autocomplete="off">
 
                     <input type="hidden" name="sekolah_id" id="sekolah_id">
 
-                    <button class="btn btn-dark">Cari</button>
+                    <button class="btn btn-dark">Search</button>
                     </div>
 
                     <div id="suggestions" class="border bg-white w-100 rounded position-absolute"></div>
