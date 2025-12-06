@@ -10,7 +10,7 @@ function likeKomentarAction() {
     }
 
     $user_id = $_SESSION['user_id'];
-    $komentar_id = $_POST['komentar_id'] ?? 0;
+    $komentar_id = intval($_POST['komentar_id'] ?? 0);
 
     if ($komentar_id == 0) {
         echo json_encode(['status' => 'error']);
@@ -18,12 +18,22 @@ function likeKomentarAction() {
     }
 
     if (hasLikedKomentar($komentar_id, $user_id)) {
+
+        // UNLIKE
         unlikeKomentar($komentar_id, $user_id);
+        decrementKomentarLike($komentar_id);
+
         $newCount = countLikesKomentar($komentar_id);
         echo json_encode(['status' => 'unliked', 'jumlah_like' => $newCount]);
+
     } else {
+
+        // LIKE
         likeKomentar($komentar_id, $user_id);
+        incrementKomentarLike($komentar_id);
+
         $newCount = countLikesKomentar($komentar_id);
         echo json_encode(['status' => 'liked', 'jumlah_like' => $newCount]);
+
     }
 }

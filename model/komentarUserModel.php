@@ -4,7 +4,7 @@ require_once __DIR__ . '/../config/koneksi.php';
 // Ambil komentar untuk sebuah post (untuk tampilan user)
 function ambilKomentarByPost($post_id) {
     global $conn;
-    $sql = "SELECT k.komentar_id, k.post_id, k.user_id, k.isi, k.tanggal_komen, u.nama AS nama_user
+    $sql = "SELECT k.komentar_id, k.post_id, k.user_id, k.isi, k.tanggal_komen, k.jumlah_like, u.nama AS nama_user
             FROM komentar k
             JOIN user u ON k.user_id = u.user_id
             WHERE k.post_id = ?
