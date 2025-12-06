@@ -16,7 +16,6 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        /* Sidebar Styling */
         .sidebar {
             position: fixed;
             top: 0;
@@ -24,8 +23,8 @@
             left: 0;
             z-index: 100;
             padding: 48px 0 0;
-            box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
             background-color: #fff;
+            box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
         }
 
         .nav-link {
@@ -33,7 +32,7 @@
             color: #333;
             margin-bottom: 10px;
             padding: 10px 20px;
-            border-radius: 30px; /* Membuat tombol bulat */
+            border-radius: 30px;
             display: flex;
             align-items: center;
             gap: 10px;
@@ -49,107 +48,57 @@
             color: #fff;
         }
 
-        /* Feed Styling */
-        .feed-container {
-            margin-top: 20px;
-        }
-
-        .filter-pill {
-            background: #fff;
-            border: 1px solid #eee;
-            color: #555;
-            padding: 8px 20px;
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: 500;
-            text-decoration: none;
-            margin-right: 5px;
-            transition: 0.2s;
-        }
-        
-        .filter-pill.active {
-            background: #000;
-            color: #fff;
-            border-color: #000;
-        }
-
-        .filter-pill:hover {
-            background-color: #e9ecef;
-            color: #000;
-        }
-
-        /* Card Post Styling */
-        .post-card {
-            border: 1px solid #eee;
-            border-radius: 16px;
-            background: #fff;
-            margin-bottom: 25px;
-            padding: 20px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
-        }
-
-        .user-avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            object-fit: cover;
-            background-color: #ddd;
-        }
-
         .post-img {
             border-radius: 12px;
             width: 100%;
-            margin-top: 15px;
-            object-fit: cover;
+            margin-top: 10px;
+            max-height: 400px;
+            object-fit: contain;
         }
+
         
-        .category-badge {
-            background-color: #f1f3f5;
-            color: #555;
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 12px;
-            font-weight: 600;
-            display: inline-block;
-            margin-bottom: 10px;
-        }
+
     </style>
 </head>
 
 <body>
 
 <div class="container-fluid">
-<div class="row">
-
-    <!-- SIDEBAR -->
-    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse">
+    <div class="row">
+        
+        <!-- SIDEBAR -->
+        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse">
             <div class="position-sticky pt-0 px-3">
                 <h4 class="mb-4 px-2 fw-bold d-flex align-items-center justify-content-center">
                     <img src="logo.png" width="100" height="100" alt="Logo">
-                </h4>
-                
+                </h4>    
+
                 <ul class="nav flex-column">
                     <li class="nav-item">
                         <a class="nav-link" href="index.php?action=dashboard">
                             <i class="bi bi-house-door-fill"></i> Home
                         </a>
                     </li>
+
                     <li class="nav-item">
                         <a class="nav-link" href="" data-bs-toggle="modal" data-bs-target="#uploadModal">
-                            <i class="bi bi-plus-circle"></i> Tambah Postingan
+                            <i class="bi bi-plus-circle"></i> Create Post
                         </a>
                     </li>
+
                     <li class="nav-item">
-                        <a class="nav-link active" href="index.php?action=ranking">
-                            <i class="bi bi-trophy"></i> Rangking
+                        <a class="nav-link active" href="index.php?action=rangking">
+                            <i class="bi bi-trophy"></i> Rank
                         </a>
                     </li>
+
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <i class="bi bi-person"></i> Profil
+                        <a class="nav-link" href="index.php?action=tampil_profil">
+                            <i class="bi bi-person"></i> Profile
                         </a>
                     </li>
-                    <li class="nav-item mt-5">
+
+                    <li class="nav-item ">
                         <a class="nav-link text-danger" href="index.php?action=logout">
                             <i class="bi bi-box-arrow-left"></i> Logout
                         </a>
@@ -157,142 +106,201 @@
                 </ul>
             </div>
         </nav>
-   
-<!-- CONTENT -->
-<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 bg-white min-vh-100">
+        
+        
+        <!-- MAIN CONTENT -->
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 bg-white min-vh-100">
 
-    <!-- HEADER -->
-    <div class="pt-4">
-        <h2 class="fw-bold d-flex align-items-center gap-2">
-            <i class="bi bi-trophy-fill text-warning"></i> Peringkat
-        </h2>
-        <p class="text-muted">Konten dengan like terbanyak</p>
-    </div>
-
-    <!-- TAB POSTINGAN / KOMENTAR -->
-    <div class="d-flex gap-3 mb-4">
-        <a href="index.php?action=ranking&type=post" 
-           class="flex-fill text-center fw-semibold py-3 rounded-4 
-                <?= ($_GET['type'] ?? 'post') == 'post' ? 'bg-dark text-white' : 'bg-light' ?>">
-            <i class="bi bi-file-earmark-text"></i> Postingan
-        </a>
-
-        <a href="index.php?action=ranking&type=comment" 
-           class="flex-fill text-center fw-semibold py-3 rounded-4 
-                <?= ($_GET['type'] ?? '') == 'comment' ? 'bg-dark text-white' : 'bg-light' ?>">
-            <i class="bi bi-chat-left-text"></i> Komentar
-        </a>
-    </div>
-
-    <!-- TAB KECIL KESSELURUHAN / PER SEKOLAH -->
-    <div class="d-flex bg-light p-1 rounded-pill mb-4" style="max-width:500px;">
-        <a href="index.php?action=ranking&type=post&mode=all" 
-           class="flex-fill text-center py-2 rounded-pill fw-semibold
-                <?= ($_GET['mode'] ?? 'all') == 'all' ? 'bg-white shadow-sm' : 'text-muted' ?>">
-            Keseluruhan
-        </a>
-
-        <a href="index.php?action=ranking&type=post&mode=school" 
-           class="flex-fill text-center py-2 rounded-pill fw-semibold
-                <?= ($_GET['mode'] ?? '') == 'school' ? 'bg-white shadow-sm' : 'text-muted' ?>">
-            Per Sekolah
-        </a>
-    </div>
-
-    <!-- FILTER SEKOLAH JIKA MODE SCHOOL -->
-    <?php if(($_GET['mode'] ?? '') == 'school'): ?>
-        <form method="GET" class="mb-4">
-            <input type="hidden" name="action" value="ranking">
-            <input type="hidden" name="type" value="post">
-            <input type="hidden" name="mode" value="school">
-
-            <div class="input-group" style="max-width:350px;">
-                <input type="text" name="sekolah_id" class="form-control" placeholder="Masukkan ID Sekolah…">
-                <button class="btn btn-dark">Cari</button>
+            <!-- HEADER -->
+            <div class="pt-4">
+                <h2 class="fw-bold d-flex align-items-center gap-2">
+                    <i class="bi bi-trophy-fill text-warning"></i> Rank
+                </h2>
+                <p class="text-muted">Content with the most likes</p>
             </div>
-        </form>
-    <?php endif; ?>
 
-    <!-- POST LIST -->
-    <div class="row justify-content-center">
-        <div class="col-lg-10">
+            <!-- TAB Postingan & Komentar -->
+            <?php 
+                $type = $_GET['type'] ?? 'postingan';
+                $mode = $_GET['mode'] ?? 'all';
+            ?>
 
-            <?php foreach($posts as $index => $p): ?>
+            <div class="d-flex gap-3 mb-4">
+                <a href="index.php?action=rangking&type=postingan&mode=<?= $mode ?>"
+                    class="flex-fill text-center fw-semibold py-3 rounded-4 
+                    <?= $type == 'postingan' ? 'bg-dark text-white' : 'bg-light' ?>">
+                    <i class="bi bi-file-earmark-text"></i> Rank Post
+                </a>
 
-                <?php 
-                    // PILIH ICON RANK
-                    $rankIcon = "bi-award";
-                    if ($index == 0) $rankIcon = "bi-trophy-fill text-warning";
-                    else if ($index == 1) $rankIcon = "bi-trophy text-secondary";
-                    else if ($index == 2) $rankIcon = "bi-trophy text-brown";
-                ?>
+                <a href="index.php?action=rangking&type=komentar&mode=<?= $mode ?>"
+                    class="flex-fill text-center fw-semibold py-3 rounded-4 
+                    <?= $type == 'komentar' ? 'bg-dark text-white' : 'bg-light' ?>">
+                    <i class="bi bi-chat-left-text"></i> Rank Comment
+                </a>
+            </div>
 
-                <div class="border rounded-4 p-4 mb-4 shadow-sm">
+            <!-- TAB All & Sekolah -->
+            <div class="d-flex bg-light p-1 rounded-pill mb-4 w-100">
+                <a href="index.php?action=rangking&type=<?= $type ?>&mode=all"
+                    class="flex-fill text-center py-2 rounded-pill fw-semibold
+                    <?= $mode == 'all' ? 'bg-white shadow-sm' : 'text-muted' ?>">
+                    All
+                </a>
 
-                    <!-- USER SECTION -->
-                    <div class="d-flex align-items-center mb-3">
-                        <i class="bi <?= $rankIcon ?> fs-3 me-3"></i>
+                <a href="index.php?action=rangking&type=<?= $type ?>&mode=filter_sekolah"
+                    class="flex-fill text-center py-2 rounded-pill fw-semibold
+                    <?= $mode == 'filter_sekolah' ? 'bg-white shadow-sm' : 'text-muted' ?>">
+                    In School
+                </a>
+            </div>
 
-                        <img src="https://ui-avatars.com/api/?name=<?= $p['nama_user'] ?>&background=random"
-                             width="48" class="rounded-circle me-3">
+            <!-- FILTER PER SEKOLAH -->
+            <?php if($mode == 'filter_sekolah'): ?>
+                <form action="index.php?action=rangking" method="GET">
+            
+                    <input type="hidden" name="action" value="rangking">
+                    <input type="hidden" name="type" value="<?= $type ?>">
+                    <input type="hidden" name="mode" value="filter_sekolah">
 
-                        <div>
-                            <h6 class="fw-bold mb-0"><?= $p['nama_user'] ?></h6>
-                            <small class="text-muted">Unknown</small>
-                        </div>
+                    <div class="input-group" style="max-width: 400px;">
+                    <input type="text" id="asal_sekolah" class="form-control" placeholder="enter the school name..." autocomplete="off">
+
+                    <input type="hidden" name="sekolah_id" id="sekolah_id">
+
+                    <button class="btn btn-dark">Search</button>
                     </div>
 
-                    <!-- KATEGORI -->
-                    <div class="mb-2">
-                        <span class="badge rounded-pill text-dark bg-light p-2 d-flex align-items-center gap-1" style="width:max-content;">
-                            <?php
-                                $icon = [
-                                    "Film" => "bi-film",
-                                    "Buku" => "bi-book",
-                                    "Lagu" => "bi-music-note-beamed",
-                                    "Game" => "bi-controller"
-                                ];
-                            ?>
-                            <i class="bi <?= $icon[$p['nama_kategori']] ?>"></i>
-                            <?= $p['nama_kategori'] ?>
-                        </span>
-                    </div>
-
-                    <!-- TITLE -->
-                    <h5 class="fw-bold"><?= $p['judul'] ?></h5>
-
-                    <!-- CONTENT -->
-                    <p class="text-muted"><?= $p['isi'] ?></p>
-
-                    <!-- IMAGE -->
-                    <?php if (!empty($p['gambar'])): ?>
-                        <img src="uploads/<?= $p['gambar'] ?>" class="img-fluid rounded mb-3">
-                    <?php endif; ?>
-
-                    <!-- FOOTER -->
-                    <div class="d-flex align-items-center gap-4">
-                        <span class="text-danger">
-                            <i class="bi bi-heart-fill"></i> <?= $p['total_rating'] ?>
-                        </span>
-
-                        <span class="text-muted">
-                            <i class="bi bi-chat-left"></i> <?= $p['jumlah_komentar'] ?? 0 ?> komentar
-                        </span>
-                    </div>
+                    <div id="suggestions" class="border bg-white w-100 rounded position-absolute"></div>
+                </form>
+            
+            <?php endif; ?>
+            
+            <!-- LIST RANKING -->
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <?php foreach($data as $index => $key):  
+                        $rankIcon = "bi-award";
+                        if ($index == 0) $rankIcon = "bi-trophy-fill text-warning";
+                        elseif ($index == 1) $rankIcon = "bi-trophy text-secondary";
+                        elseif ($index == 2) $rankIcon = "bi-trophy text-brown";
+                    ?>
+                        <div class="border rounded-4 p-4 mb-4 shadow-sm">
+                            
+                            <!-- USER -->
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="bi <?= $rankIcon ?> fs-3 me-3"></i>
+                                <img src="https://ui-avatars.com/api/?name=<?= $key['nama_user'] ?>&background=random"
+                                     width="48" class="rounded-circle me-3">
+                                <div>
+                                    <h6 class="fw-bold mb-0"><?= $key['nama_user'] ?></h6>   
+                                    <small class="text-muted">
+                                        <?php
+                                            if ($type == 'postingan') {
+                                                $tanggal = $key['tanggal_post'];
+                                            } else {
+                                                $tanggal = $key['tanggal_komen'];
+                                            }
+                                        
+                                            echo date('d M Y, H:i', strtotime($tanggal));
+                                        ?>
+                                    </small>
+                                </div>          
+                            </div>
+                                    
+                            <!-- Kategori postingan -->
+                            <?php if ($type == 'postingan'): ?>
+                                <div class="category-badge">
+                                    <?php
+                                        if ($key['nama_kategori'] == "Buku") {
+                                            echo '<i class="bi bi-book-fill me-1"></i>' . "Book";
+                                        }
+                                        elseif($key['nama_kategori'] == "Film") {
+                                            echo '<i class="bi bi-film"></i> ' . "Movie";
+                                        }
+                                        elseif($key['nama_kategori'] == "Lagu") {
+                                            echo '<i class="bi bi-music-note-beamed"></i> ' . "Music";
+                                        }
+                                        elseif($key['nama_kategori'] == "Game") {
+                                            echo '<i class="bi bi-controller"></i> ' . "Game";
+                                        }
+                                    ?>
+                                </div>
+                                    
+                                <h5 class="fw-bold"><?= $key['judul'] ?></h5>
+                                    
+                                <p class="text-muted"><?= $key['isi'] ?></p>
+                                    
+                                <?php if (!empty($key['gambar'])): ?>
+                                    <img src="uploads/<?= $key['gambar'] ?>" class="post-img" alt="Post Image">
+                                <?php endif; ?>
+                            <?php endif; ?>
+                                
+                            <!-- Kategori Komentar -->
+                            <?php if ($type == 'komentar'): ?>
+                                <div class="bg-light p-3 rounded mb-3">
+                                    <p class="mb-0"><?= $key['isi'] ?></p>
+                                </div>
+                            <?php endif; ?>
+                            
+                            <!-- FOOTER -->
+                            <div class="d-flex align-items-center gap-4">
+                                <span class="text-danger">
+                                    <i class="bi bi-heart-fill"></i> <?= $key['jumlah_like'] ?>
+                                </span>
+                            
+                                <?php if ($type == 'postingan'): ?>
+                                <span class="text-muted">
+                                    <i class="bi bi-chat-left"></i> <?= $key['jumlah_komentar'] ?> komentar
+                                </span>
+                                <?php endif; ?>
+                            </div>    
+                        </div>         
+                    <?php endforeach; ?>  
                 </div>
-
-            <?php endforeach; ?>
-
-        </div>
+            </div>
+        </main>          
     </div>
-
-</main>
-
-
-</div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+// AJAX autocomplete
+document.getElementById("asal_sekolah").addEventListener("keyup", function () {
+    let keyword = this.value;
+
+    if (keyword.length < 2) {
+        document.getElementById("suggestions").innerHTML = "";
+        return;
+    }
+
+    fetch("index.php?action=filter_sekolah&keyword=" + keyword)
+        .then(response => response.json())
+        .then(data => {
+            let box = document.getElementById("suggestions");
+            box.innerHTML = "";
+
+            data.forEach(item => {
+                let div = document.createElement("div");
+                div.classList.add("suggestion-item");
+                div.textContent = item.nama_sekolah;
+
+                div.onclick = function () {
+
+                    // tampilkan nama sekolah
+                    document.getElementById("asal_sekolah").value = item.nama_sekolah;
+
+                    // simpan sekolah_id ke hidden input
+                    document.getElementById("sekolah_id").value = item.sekolah_id;
+
+                    box.innerHTML = "";
+                };
+
+                box.appendChild(div);
+            });
+        });
+});
+</script>
 
 </body>
 </html>

@@ -2,11 +2,11 @@
 // loginc
 require_once __DIR__ . '/../model/loginModel.php';
 
-function tampilLogin() {
+function tampil_login() {
     include __DIR__ . '/../view/login_view.php';
 }
 
-function prosesLogin() {
+function proses_login() {
     session_start();
 
     $nama = $_POST['nama'];
@@ -16,7 +16,6 @@ function prosesLogin() {
     $result = cekUser($nama, $password);
 
     if ($result) {
-        // Simpan semua data penting ke session
         $_SESSION['login'] = true;
         $_SESSION['user_id'] = $result['user_id'];
         $_SESSION['nama'] = $result['nama'];
