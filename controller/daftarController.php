@@ -2,22 +2,22 @@
 require_once __DIR__ . '/../model/daftarModel.php';
 
 // Tampilkan halaman daftar
-function tampilDaftar() {
+function tampil_daftar() {
     include __DIR__ . '/../view/daftar_view.php';
 }
 
 // Proses daftar
-function prosesDaftar() {      
+function proses_daftar() {      
     $nama = $_POST['nama'];
     $email = $_POST['email'];
     $password = $_POST['password'];
     $asal_sekolah = $_POST['asal_sekolah'];
 
     // Tambahkan sekolah jika belum ada
-    $sekolah_id = tambahSekolahJikaBelumAda($asal_sekolah);
+    $sekolah_id = tambah_sekolah_jika_belum_ada($asal_sekolah);
 
     // Daftar user
-    $hasil = daftarUserBaru($nama, $email, $password, $sekolah_id);
+    $hasil = daftar_user_baru($nama, $email, $password, $sekolah_id);
 
     if ($hasil) {
         echo "<script>alert('Pendaftaran berhasil! Silakan login.'); 
@@ -29,7 +29,7 @@ function prosesDaftar() {
 }
 
 // nama sekolah otomatis
-function cariSekolahAjax() {
+function cari_Sekolah() {
     $keyword = trim($_GET['keyword'] ?? '');
     header('Content-Type: application/json'); // penting
     echo json_encode(cariSekolah($keyword));

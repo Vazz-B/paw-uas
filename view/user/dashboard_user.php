@@ -35,8 +35,7 @@
             color: #333;
             margin-bottom: 10px;
             padding: 10px 20px;
-            border-radius: 30px;
-            /* Membuat tombol bulat */
+            border-radius: 30px; /* Membuat tombol bulat */
             display: flex;
             align-items: center;
             gap: 10px;
@@ -69,7 +68,7 @@
             margin-right: 5px;
             transition: 0.2s;
         }
-
+        
         .filter-pill.active {
             background: #000;
             color: #fff;
@@ -88,7 +87,7 @@
             background: #fff;
             margin-bottom: 25px;
             padding: 20px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
         }
 
         .user-avatar {
@@ -107,6 +106,7 @@
             object-fit: contain;
         }
 
+        
         .category-badge {
             background-color: #f1f3f5;
             color: #555;
@@ -132,7 +132,6 @@
 <body>
     <div class="container-fluid">
         <div class="row">
-
             <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse">
                 <div class="position-sticky pt-0 px-3">
                     <h4 class="mb-4 px-2 fw-bold d-flex align-items-center justify-content-center">
@@ -141,7 +140,7 @@
 
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link active" href="#">
+                            <a class="nav-link active" href="index.php?action=dashboard">
                                 <i class="bi bi-house-door-fill"></i> Home
                             </a>
                         </li>
@@ -151,43 +150,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="index.php?action=ranking">
-                                <i class="bi bi-trophy"></i> Rank
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.php?action=tampil_profil">
-                                <i class="bi bi-person"></i> Profil
-                            </a>
-                        </li>
-                        <li class="nav-item ">
-                            <a class="nav-link text-danger" href="index.php?action=logout">
-                                <i class="bi bi-box-arrow-left"></i> Logout
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-
-            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse">
-                <div class="position-sticky pt-0 px-3">
-                    <h4 class="mb-4 px-2 fw-bold d-flex align-items-center justify-content-center">
-                        <img src="logo.png" width="100" height="100" alt="Logo">
-                    </h4>
-
-                    <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="#">
-                                <i class="bi bi-house-door-fill"></i> Home
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="" data-bs-toggle="modal" data-bs-target="#uploadModal">
-                                <i class="bi bi-plus-circle"></i> Create Post
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.php?action=ranking">
+                            <a class="nav-link" href="index.php?action=rangking">
                                 <i class="bi bi-trophy"></i> Rank
                             </a>
                         </li>
@@ -196,7 +159,7 @@
                                 <i class="bi bi-person"></i> Profile
                             </a>
                         </li>
-                        <li class="nav-item mt-5">
+                        <li class="nav-item">
                             <a class="nav-link text-danger" href="index.php?action=logout">
                                 <i class="bi bi-box-arrow-left"></i> Logout
                             </a>

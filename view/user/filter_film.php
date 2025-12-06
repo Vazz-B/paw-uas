@@ -129,12 +129,12 @@
 <body>
     <div class="container-fluid">
         <div class="row">
-
             <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse">
                 <div class="position-sticky pt-0 px-3">
                     <h4 class="mb-4 px-2 fw-bold d-flex align-items-center justify-content-center">
                         <img src="logo.png" width="100" height="100" alt="Logo">
                     </h4>
+
 
                     <ul class="nav flex-column">
                         <li class="nav-item">
@@ -148,16 +148,16 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="index.php?action=ranking">
+                            <a class="nav-link" href="index.php?action=rangking">
                                 <i class="bi bi-trophy"></i> Rank
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <i class="bi bi-person"></i> Profil
+                            <a class="nav-link" href="index.php?action=tampil_profil">
+                                <i class="bi bi-person"></i> Profile
                             </a>
                         </li>
-                        <li class="nav-item mt-5">
+                        <li class="nav-item">
                             <a class="nav-link text-danger" href="index.php?action=logout">
                                 <i class="bi bi-box-arrow-left"></i> Logout
                             </a>

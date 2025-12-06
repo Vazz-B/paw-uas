@@ -6,7 +6,7 @@ require_once __DIR__ . '/../model/likePostModel.php';
 require_once __DIR__ . '/../model/komentarUserModel.php';
 // Nizam
 
-function tampilDashboard() {
+function tampil_dashboard() {
     session_start();
 
     if (!isset($_SESSION['login'])) {
@@ -15,7 +15,7 @@ function tampilDashboard() {
     }
 
     // Ambil data postingan dari model
-    $posts = ambilSemuaPostingan();
+    $posts = ambil_semua_postingan();
 
     // Nizam
     foreach ($posts as $idx => $p) {
