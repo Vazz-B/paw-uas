@@ -22,6 +22,7 @@ function tampilKomentarUser() {
     foreach ($komentar as $idx => $k) {
         $komentar_id = intval($k['komentar_id']);
 
+        // ambil jumlah like komentar
         $komentar[$idx]['jumlah_like'] = countLikesKomentar($komentar_id);
 
         if (isset($_SESSION['user_id'])) {
