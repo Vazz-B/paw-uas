@@ -129,13 +129,13 @@
                 <a href="index.php?action=rangking&type=postingan&mode=<?= $mode ?>"
                     class="flex-fill text-center fw-semibold py-3 rounded-4 
                     <?= $type == 'postingan' ? 'bg-dark text-white' : 'bg-light' ?>">
-                    <i class="bi bi-file-earmark-text"></i> Postingan
+                    <i class="bi bi-file-earmark-text"></i> Rank Post
                 </a>
 
                 <a href="index.php?action=rangking&type=komentar&mode=<?= $mode ?>"
                     class="flex-fill text-center fw-semibold py-3 rounded-4 
                     <?= $type == 'komentar' ? 'bg-dark text-white' : 'bg-light' ?>">
-                    <i class="bi bi-chat-left-text"></i> Komentar
+                    <i class="bi bi-chat-left-text"></i> Rank Comment
                 </a>
             </div>
 
@@ -144,13 +144,13 @@
                 <a href="index.php?action=rangking&type=<?= $type ?>&mode=all"
                     class="flex-fill text-center py-2 rounded-pill fw-semibold
                     <?= $mode == 'all' ? 'bg-white shadow-sm' : 'text-muted' ?>">
-                    Keseluruhan
+                    All
                 </a>
 
                 <a href="index.php?action=rangking&type=<?= $type ?>&mode=filter_sekolah"
                     class="flex-fill text-center py-2 rounded-pill fw-semibold
                     <?= $mode == 'filter_sekolah' ? 'bg-white shadow-sm' : 'text-muted' ?>">
-                    Per Sekolah
+                    In School
                 </a>
             </div>
 
