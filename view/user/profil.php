@@ -5,6 +5,7 @@
 
 $user_id = $_SESSION['user_id'];  // Ambil user_id dari session
 $data_user = $_SESSION;  // Ambil data dari session
+
 ?>
 
 <!DOCTYPE html>
@@ -28,7 +29,7 @@ $data_user = $_SESSION;  // Ambil data dari session
             padding: 15px 20px;
             font-weight: bold;
             color: white;
-            background-color: #413f3d;
+            background-color: #413F3D;
             box-sizing: border-box; 
             text-align: center;
             font-size: 30px;
@@ -167,7 +168,6 @@ $data_user = $_SESSION;  // Ambil data dari session
 
         .post-info {
             flex-grow: 1;
-            max-width: 70%;
         }
 
         .post-info h3 {
@@ -195,6 +195,24 @@ $data_user = $_SESSION;  // Ambil data dari session
         .btn-hapus:hover {
             background: #d93636;
         }
+
+        /* Tombol Edit kuning native */
+        .btn-edit {
+            background-color: #ffeb3b; /* kuning */
+            color: #333;
+            text-decoration: none;
+            padding: 6px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            cursor: pointer;
+            margin-left: 8px; /* jarak dengan tombol Delete */
+            display: inline-block;
+        }
+
+        .btn-edit:hover {
+            background-color: #fdd835; /* hover lebih terang */
+        }
+
     </style>
 </head>
 <body>
@@ -258,6 +276,11 @@ $data_user = $_SESSION;  // Ambil data dari session
                             </button>
                         </form>
 
+                        <?php if ($post['user_id'] == $_SESSION['user_id']): ?>
+                            <a href="index.php?action=edit_post&post_id=<?= $post['post_id'] ?>" class="btn-edit">
+                                Edit
+                            </a>
+                        <?php endif; ?>
                     </div>
                 <?php endforeach; ?>
 
@@ -267,7 +290,6 @@ $data_user = $_SESSION;  // Ambil data dari session
 
             </div>
         </div>
-
     </div>
 </body>
 </html>

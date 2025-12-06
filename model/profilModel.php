@@ -73,4 +73,27 @@ function hapus_post($post_id, $user_id) {
 
     return mysqli_stmt_execute($stmt5);
 }
+
+function get_post_by_id($post_id) {
+    global $conn;
+    $sql = "SELECT * FROM post WHERE post_id = ?";
+    $stmt = mysqli_prepare($conn, $sql);
+    mysqli_stmt_bind_param($stmt, "i", $post_id);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+    $post = mysqli_fetch_assoc($result);
+    mysqli_stmt_close($stmt);
+    return $post;
+}
+
+// Fungsi update postingan
+function update_post_by_id($post_id, $judul, $isi) {
+    global $conn;
+    $sql = "UPDATE post SET judul = ?, isi = ? WHERE post_id = ?";
+    $stmt = mysqli_prepare($conn, $sql);
+    mysqli_stmt_bind_param($stmt, "ssi", $judul, $isi, $post_id);
+    $ok = mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+    return $ok;
+}
 ?>

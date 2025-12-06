@@ -21,6 +21,8 @@ elseif ($action == "cari_sekolah") cari_Sekolah();
 elseif ($action == "dashboard") tampil_dashboard();
 elseif ($action == "tampil_profil") tampil_profil();
 elseif ($action == "edit_bio") edit_bio();
+elseif ($action == "edit_post") tampil_edit_post($_GET['post_id']);
+elseif ($action == "update_post") proses_update_post();
 elseif ($action == "hapus_postingan") hapus_postingan();
 elseif ($action == "filter_buku") tampil_filter_buku();
 elseif ($action == "filter_film") tampil_filter_film();
