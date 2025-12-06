@@ -225,7 +225,7 @@
 
                                 <h5 class="fw-bold"><?= $p['judul'] ?></h5>
 
-                                <p class="text-secondary">
+                                <p class="text-secondary isi-text">
                                     <?= !empty($p['isi']) ? $p['isi'] : 'Tidak ada deskripsi tambahan untuk review ini.' ?>
                                 </p>
 
@@ -233,7 +233,6 @@
                                     <img src="uploads/<?= $p['gambar'] ?>" class="post-img" alt="Post Image">
                                 <?php endif; ?>
 
-                                <!-- Nizam -->
                                 <div class="mt-3 pt-3 border-top d-flex gap-4 text-muted">
                                     <?php
                                     $postId = $p['post_id'];
@@ -249,44 +248,11 @@
                                         <i class="bi bi-chat"></i>
                                         <span class="ms-1"><?= ($p['jumlah_komentar'] ?? 0) ?> Comment</span>
                                     </a>
-                                    <!-- Nizam -->
                                 </div>
                             </div>
-                            <div class="category-badge">
-                                <?php
-                                    if ($p['nama_kategori'] == "Buku") {
-                                        echo '<i class="bi bi-book-fill me-1"></i>' . $p['nama_kategori'];
-                                    }
-                                    elseif($p['nama_kategori'] == "Film") {
-                                        echo '<i class="bi bi-film"></i> ' . $p['nama_kategori'];
-                                    }
-                                    elseif($p['nama_kategori'] == "Lagu") {
-                                        echo '<i class="bi bi-music-note-beamed"></i> ' . $p['nama_kategori'];
-                                    }
-                                    elseif($p['nama_kategori'] == "Game") {
-                                        echo '<i class="bi bi-controller"></i> ' . $p['nama_kategori'];
-                                    }
-                                ?>
-
-                            </div>
-
-                            <h5 class="fw-bold"><?= $p['judul'] ?></h5>
-                            
-                            <p class="text-secondary isi-text">
-                                <?= !empty($p['isi']) ? $p['isi'] : 'Tidak ada deskripsi tambahan untuk review ini.' ?>
-                            </p>
-
-                            <?php if (!empty($p['gambar'])): ?>
-                                <img src="uploads/<?= $p['gambar'] ?>" class="post-img" alt="Post Image">
-                            <?php endif; ?>
-                            
-                            <div class="mt-3 pt-3 border-top d-flex gap-4 text-muted">
-                                <span><i class="bi bi-heart"></i> Suka</span>
-                                <span><i class="bi bi-chat"></i> Komentar</span>
-                                <span class="ms-auto"><i class="bi bi-share"></i></span>
-                            </div>
-                        </div>
-                    <?php endforeach; ?>
+                        
+                        <?php endforeach; ?>
+                    </div>
 
                 </div>
             </div>
