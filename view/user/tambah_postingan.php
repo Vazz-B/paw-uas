@@ -9,9 +9,9 @@
                 <div class="modal-body">
 
                     <div class="mb-3">
-                        <label class="form-label fw-semibold">Kategori</label>
+                        <label class="form-label fw-semibold">Category</label>
                         <select name="kategori_id" class="form-select" required>
-                            <option value="">-- select category --</option>
+                            <option value="">-- Select category --</option>
                             <option value="1">Book</option>
                             <option value="2">Game</option>
                             <option value="3">Music</option>
@@ -21,16 +21,16 @@
 
                     <div class="mb-3">
                         <label class="form-label fw-semibold">Post Title</label>
-                        <input type="text" name="judul" class="form-control" placeholder="Contoh: Atomic Habits..." required>
+                        <input type="text" name="judul" class="form-control" placeholder="Example: Atomic Habits..." required>
                     </div>
                     
                     <div class="mb-3">
                         <label class="form-label fw-semibold">Caption</label>
-                        <textarea name="isi" class="form-control" rows="3" placeholder="Bagaimana pendapatmu?"></textarea>
+                        <textarea name="isi" class="form-control" rows="3" placeholder="What do you think?"></textarea>
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label fw-semibold">Upload Foto</label>
+                        <label class="form-label fw-semibold">Upload Image</label>
                         <input type="file" name="foto" class="form-control" required>
                     </div>
                 </div>

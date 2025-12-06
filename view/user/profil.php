@@ -245,7 +245,7 @@ $data_user = $_SESSION;  // Ambil data dari session
                         <!-- Info postingan -->
                         <div class="post-info">
                             <h3><?= htmlspecialchars($post['judul']); ?></h3>
-                            <p><?= htmlspecialchars($post['isi']); ?></p>
+                            <p style="text-align: justify;"><?= htmlspecialchars($post['isi']); ?></p>
                         </div>
 
                         <!-- Tombol Hapus -->

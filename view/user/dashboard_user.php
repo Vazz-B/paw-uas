@@ -97,6 +97,11 @@
             background-color: #ddd;
         }
 
+        .isi-text {
+            text-align: justify;
+            line-height: 1.6;
+        }
+
         .post-img {
             border-radius: 12px;
             width: 100%;
@@ -214,7 +219,7 @@
 
                             <h5 class="fw-bold"><?= $p['judul'] ?></h5>
                             
-                            <p class="text-secondary">
+                            <p class="text-secondary isi-text">
                                 <?= !empty($p['isi']) ? $p['isi'] : 'Tidak ada deskripsi tambahan untuk review ini.' ?>
                             </p>
 
