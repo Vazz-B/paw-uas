@@ -99,15 +99,15 @@ a.cancel {
 <h2>Edit Post</h2>
 <form action="index.php?action=update_post" method="POST">
     <input type="hidden" name="post_id" value="<?= $post['post_id'] ?>">
-    <label>Judul:</label>
+    <label>Tittle:</label>
     <input type="text" name="judul" value="<?= htmlspecialchars($post['judul']) ?>" required>
     
-    <label>Isi:</label>
+    <label>Content:</label>
     <textarea name="isi" rows="6" required><?= htmlspecialchars($post['isi']) ?></textarea>
     
     <div class="d-flex justify-content-end">
-        <button type="submit" class="save">Simpan Perubahan</button>
-        <a href="index.php?action=tampil_profil" class="cancel btn">Batal</a>
+        <button type="submit" class="save">Save Changes</button>
+        <a href="index.php?action=tampil_profil" class="cancel btn">Cancel</a>
     </div>
 </form>
 </div>
