@@ -146,7 +146,7 @@
             
                     <input type="hidden" name="action" value="admin_rangking">
                     <input type="hidden" name="type" value="<?= $type ?>">
-                    <input type="hidden" name="mode" value="admin_filter_sekolah">
+                    <input type="hidden" name="mode" value="school">
 
                     <div class="input-group" style="max-width: 400px; position: relative;">
                     <input type="text" id="asal_sekolah" class="form-control" placeholder="enter the school name..." autocomplete="off">

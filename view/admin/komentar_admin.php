@@ -52,7 +52,7 @@
                                     data-komen="<?= $k['komentar_id'] ?>"
                                     style="cursor: pointer;">
 
-                                    <i class="bi <?= $k['user_has_liked'] ? 'bi-heart-fill text-danger' : 'bi-heart' ?> icon-like-komen-<?= $k['komentar_id'] ?> fs-5"></i>
+                                    <i class="bi <?= 'bi-heart-fill text-danger' ?> icon-like-komen-<?= $k['komentar_id'] ?> fs-5"></i>
 
                                     <span class="ms-1 like-komen-count-<?= $k['komentar_id'] ?>"
                                         style="font-size: 14px;">
@@ -69,39 +69,5 @@
             <?php endif; ?>
         </div>
     </div>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            document.querySelectorAll('.btn-like-komen').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const komentarId = this.dataset.komen;
-
-                    fetch('index.php?action=like_komentar', {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/x-www-form-urlencoded'
-                            },
-                            body: 'komentar_id=' + komentarId
-                        })
-                        .then(res => res.json())
-                        .then(data => {
-                            if (!data) return;
-
-                            const icon = document.querySelector('.icon-like-komen-' + komentarId);
-                            const count = document.querySelector('.like-komen-count-' + komentarId);
-
-                            if (data.status === 'liked') {
-                                icon.classList.remove('bi-heart');
-                                icon.classList.add('bi-heart-fill', 'text-danger');
-                            } else {
-                                icon.classList.remove('bi-heart-fill', 'text-danger');
-                                icon.classList.add('bi-heart');
-                            }
-
-                            count.textContent = data.jumlah_like;
-                        });
-                });
-            });
-        });
-    </script>
 </body>
 </html>
