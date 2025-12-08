@@ -79,13 +79,6 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="" data-bs-toggle="modal" data-bs-target="#uploadModal">
-                            <i class="bi bi-plus-circle"></i> Create Post
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-
                         <a class="nav-link active" href="index.php?action=admin_rangking">
                             <i class="bi bi-trophy"></i> Rank
                         </a>
@@ -140,18 +133,15 @@
                     All
                 </a>
 
-                <a href="index.php?action=admin_rangking&type=<?= $type ?>&mode=filter_sekolah"
+                <a href="index.php?action=admin_rangking&type=<?= $type ?>&mode=admin_filter_sekolah"
                     class="flex-fill text-center py-2 rounded-pill fw-semibold
                     <?= $mode == 'admin_filter_sekolah' ? 'bg-white shadow-sm' : 'text-muted' ?>">
-                <a href="index.php?action=admin_rangking&type=<?= $type ?>&mode=school"
-                    class="flex-fill text-center py-2 rounded-pill fw-semibold
-                    <?= $mode == 'school' ? 'bg-white shadow-sm' : 'text-muted' ?>">
                     In School
                 </a>
             </div>
 
             <!-- FILTER PER SEKOLAH -->
-            <?php if($mode == 'school'): ?>
+            <?php if($mode == 'admin_filter_sekolah'): ?>
                 <form action="index.php?action=admin_rangking" method="GET">
             
                     <input type="hidden" name="action" value="admin_rangking">
