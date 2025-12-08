@@ -1,5 +1,3 @@
-<?php include 'tambah_postingan.php'; ?>
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -75,26 +73,14 @@
 
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php?action=dashboard">
+                        <a class="nav-link" href="index.php?action=dashboard_admin">
                             <i class="bi bi-house-door-fill"></i> Home
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="" data-bs-toggle="modal" data-bs-target="#uploadModal">
-                            <i class="bi bi-plus-circle"></i> Create Post
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link active" href="index.php?action=rangking">
+                        <a class="nav-link active" href="index.php?action=admin_rangking">
                             <i class="bi bi-trophy"></i> Rank
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.php?action=tampil_profil">
-                            <i class="bi bi-person"></i> Profile
                         </a>
                     </li>
 
@@ -126,13 +112,13 @@
             ?>
 
             <div class="d-flex gap-3 mb-4">
-                <a href="index.php?action=rangking&type=postingan&mode=<?= $mode ?>"
+                <a href="index.php?action=admin_rangking&type=postingan&mode=<?= $mode ?>"
                     class="flex-fill text-center fw-semibold py-3 rounded-4 
                     <?= $type == 'postingan' ? 'bg-dark text-white' : 'bg-light' ?>">
                     <i class="bi bi-file-earmark-text"></i> Rank Post
                 </a>
 
-                <a href="index.php?action=rangking&type=komentar&mode=<?= $mode ?>"
+                <a href="index.php?action=admin_rangking&type=komentar&mode=<?= $mode ?>"
                     class="flex-fill text-center fw-semibold py-3 rounded-4 
                     <?= $type == 'komentar' ? 'bg-dark text-white' : 'bg-light' ?>">
                     <i class="bi bi-chat-left-text"></i> Rank Comment
@@ -141,26 +127,26 @@
 
             <!-- TAB All & Sekolah -->
             <div class="d-flex bg-light p-1 rounded-pill mb-4 w-100">
-                <a href="index.php?action=rangking&type=<?= $type ?>&mode=all"
+                <a href="index.php?action=admin_rangking&type=<?= $type ?>&mode=all"
                     class="flex-fill text-center py-2 rounded-pill fw-semibold
                     <?= $mode == 'all' ? 'bg-white shadow-sm' : 'text-muted' ?>">
                     All
                 </a>
 
-                <a href="index.php?action=rangking&type=<?= $type ?>&mode=admin_filter_sekolah"
+                <a href="index.php?action=admin_rangking&type=<?= $type ?>&mode=admin_filter_sekolah"
                     class="flex-fill text-center py-2 rounded-pill fw-semibold
-                    <?= $mode == 'filter_sekolah' ? 'bg-white shadow-sm' : 'text-muted' ?>">
+                    <?= $mode == 'admin_filter_sekolah' ? 'bg-white shadow-sm' : 'text-muted' ?>">
                     In School
                 </a>
             </div>
 
             <!-- FILTER PER SEKOLAH -->
-            <?php if($mode == 'filter_sekolah'): ?>
-                <form action="index.php?action=rangking" method="GET">
+            <?php if($mode == 'admin_filter_sekolah'): ?>
+                <form action="index.php?action=admin_rangking" method="GET">
             
                     <input type="hidden" name="action" value="rangking">
                     <input type="hidden" name="type" value="<?= $type ?>">
-                    <input type="hidden" name="mode" value="filter_sekolah">
+                    <input type="hidden" name="mode" value="admin_filter_sekolah">
 
                     <div class="input-group" style="max-width: 400px;">
                     <input type="text" id="asal_sekolah" class="form-control" placeholder="enter the school name..." autocomplete="off">
@@ -274,7 +260,7 @@ document.getElementById("asal_sekolah").addEventListener("keyup", function () {
         return;
     }
 
-    fetch("index.php?action=filter_sekolah&keyword=" + keyword)
+    fetch("index.php?action=admin_filter_sekolah&keyword=" + keyword)
         .then(response => response.json())
         .then(data => {
             let box = document.getElementById("suggestions");

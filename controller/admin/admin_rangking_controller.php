@@ -34,14 +34,14 @@ function admin_tampilrangking() {
         $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
     }
 
-    include "./view/user/rangking.php";
+    include "./view/admin/rangking_admin.php";
 }
 
 
 
 // nama sekolah otomatis
 function admin_filter_sekolah() {
-    untuk_user();
+    untuk_admin();
 
     $keyword = trim($_GET['keyword'] ?? '');
     header('Content-Type: application/json'); // penting
