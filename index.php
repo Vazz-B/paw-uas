@@ -33,6 +33,8 @@ elseif ($action == "update_post") proses_update_post();
 elseif ($action == "hapus_postingan") hapus_postingan();
 elseif ($action == "filter_buku") tampil_filter_buku();
 elseif ($action == "filter_film") tampil_filter_film();
+elseif ($action == "filter_game") tampil_filter_game();
+elseif ($action == "filter_lagu") tampil_filter_lagu();
 elseif ($action == "simpan_post") prosesSimpanPost();
 elseif ($action == "komentar_user") tampilKomentarUser();
 elseif ($action == "simpan_komentar_user") simpanKomentarUser();

@@ -172,8 +172,8 @@
                     <a href="index.php?action=dashboard" class="filter-pill"><i class="bi bi-phone"></i> All</a>
                     <a href="index.php?action=filter_buku" class="filter-pill active"><i class="bi bi-book"></i> Book</a>
                     <a href="index.php?action=filter_film" class="filter-pill"><i class="bi bi-film"></i> Movie</a>
-                    <a href="#" class="filter-pill"><i class="bi bi-controller"></i> Game</a>
-                    <a href="#" class="filter-pill"><i class="bi bi-music-note-beamed"></i> Music</a>
+                    <a href="index.php?action=filter_game" class="filter-pill"><i class="bi bi-controller"></i> Game</a>
+                    <a href="index.php?action=filter_lagu" class="filter-pill"><i class="bi bi-music-note-beamed"></i> Music</a>
 
                     <div class="ms-auto d-flex align-items-center">
                         <span class="me-2 text-muted small">Halo, <b><?= $_SESSION['nama'] ?></b></span>

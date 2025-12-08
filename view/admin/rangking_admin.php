@@ -87,7 +87,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link active" href="index.php?action=rangking">
+                        <a class="nav-link active" href="index.php?action=admin_rangking">
                             <i class="bi bi-trophy"></i> Rank
                         </a>
                     </li>
@@ -126,13 +126,13 @@
             ?>
 
             <div class="d-flex gap-3 mb-4">
-                <a href="index.php?action=rangking&type=postingan&mode=<?= $mode ?>"
+                <a href="index.php?action=admin_rangking&type=postingan&mode=<?= $mode ?>"
                     class="flex-fill text-center fw-semibold py-3 rounded-4 
                     <?= $type == 'postingan' ? 'bg-dark text-white' : 'bg-light' ?>">
                     <i class="bi bi-file-earmark-text"></i> Rank Post
                 </a>
 
-                <a href="index.php?action=rangking&type=komentar&mode=<?= $mode ?>"
+                <a href="index.php?action=admin_rangking&type=komentar&mode=<?= $mode ?>"
                     class="flex-fill text-center fw-semibold py-3 rounded-4 
                     <?= $type == 'komentar' ? 'bg-dark text-white' : 'bg-light' ?>">
                     <i class="bi bi-chat-left-text"></i> Rank Comment
@@ -141,24 +141,24 @@
 
             <!-- TAB All & Sekolah -->
             <div class="d-flex bg-light p-1 rounded-pill mb-4 w-100">
-                <a href="index.php?action=rangking&type=<?= $type ?>&mode=all"
+                <a href="index.php?action=admin_rangking&type=<?= $type ?>&mode=all"
                     class="flex-fill text-center py-2 rounded-pill fw-semibold
                     <?= $mode == 'all' ? 'bg-white shadow-sm' : 'text-muted' ?>">
                     All
                 </a>
 
-                <a href="index.php?action=rangking&type=<?= $type ?>&mode=admin_filter_sekolah"
+                <a href="index.php?action=admin_rangking&type=<?= $type ?>&mode=filter_sekolah"
                     class="flex-fill text-center py-2 rounded-pill fw-semibold
-                    <?= $mode == 'filter_sekolah' ? 'bg-white shadow-sm' : 'text-muted' ?>">
+                    <?= $mode == 'admin_filter_sekolah' ? 'bg-white shadow-sm' : 'text-muted' ?>">
                     In School
                 </a>
             </div>
 
             <!-- FILTER PER SEKOLAH -->
             <?php if($mode == 'filter_sekolah'): ?>
-                <form action="index.php?action=rangking" method="GET">
+                <form action="index.php?action=admin_rangking" method="GET">
             
-                    <input type="hidden" name="action" value="rangking">
+                    <input type="hidden" name="action" value="admin_rangking">
                     <input type="hidden" name="type" value="<?= $type ?>">
                     <input type="hidden" name="mode" value="filter_sekolah">
 

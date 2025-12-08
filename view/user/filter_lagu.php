@@ -101,9 +101,11 @@
         .post-img {
             border-radius: 12px;
             width: 100%;
-            margin-top: 15px;
-            object-fit: cover;
+            margin-top: 10px;
+            max-height: 400px;
+            object-fit: contain;
         }
+
 
         .category-badge {
             background-color: #f1f3f5;
@@ -134,8 +136,6 @@
                     <h4 class="mb-4 px-2 fw-bold d-flex align-items-center justify-content-center">
                         <img src="logo.png" width="100" height="100" alt="Logo">
                     </h4>
-
-
                     <ul class="nav flex-column">
                         <li class="nav-item">
                             <a class="nav-link active" href="#">
@@ -171,9 +171,9 @@
                 <div class="d-flex align-items-center py-4 border-bottom mb-4 sticky-top bg-white" style="z-index: 90;">
                     <a href="index.php?action=dashboard" class="filter-pill"><i class="bi bi-phone"></i> All</a>
                     <a href="index.php?action=filter_buku" class="filter-pill"><i class="bi bi-book"></i> Book</a>
-                    <a href="index.php?action=filter_film" class="filter-pill active"><i class="bi bi-film"></i> Movie</a>
+                    <a href="index.php?action=filter_film" class="filter-pill"><i class="bi bi-film"></i> Movie</a>
                     <a href="index.php?action=filter_game" class="filter-pill"><i class="bi bi-controller"></i> Game</a>
-                    <a href="index.php?action=filter_lagu" class="filter-pill"><i class="bi bi-music-note-beamed"></i> Music</a>
+                    <a href="index.php?action=filter_lagu" class="filter-pill active"><i class="bi bi-music-note-beamed"></i> Music</a>
 
                     <div class="ms-auto d-flex align-items-center">
                         <span class="me-2 text-muted small">Halo, <b><?= $_SESSION['nama'] ?></b></span>
