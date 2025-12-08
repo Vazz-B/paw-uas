@@ -232,10 +232,9 @@
                                     <?php
                                     $postId = $p['post_id'];
                                     $jumlahLike = $p['jumlah_like'] ?? 0;
-                                    $userHasLiked = $p['user_has_liked'] ?? false;
                                     ?>
-                                    <a href="javascript:void(0)" class="btn-like d-flex align-items-center text-decoration-none" data-post="<?= $postId ?>">
-                                        <i class="bi <?= $userHasLiked ? 'bi-heart-fill text-danger' : 'bi-heart' ?> icon-like-<?= $postId ?>" style="font-size:1.05rem;"></i>
+                                    <a class="btn-like d-flex align-items-center text-decoration-none" data-post="<?= $postId ?>">
+                                        <i class="bi <?= 'bi-heart-fill text-danger' ?> icon-like-<?= $postId ?>" style="font-size:1.05rem;"></i>
                                         <span class="ms-2 like-count-<?= $postId ?>"><?= $jumlahLike ?></span>
                                         <span class="ms-1">Like</span>
                                     </a>
@@ -252,43 +251,5 @@
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            document.querySelectorAll('.btn-like').forEach(btn => {
-                btn.addEventListener('click', function(e) {
-                    const postId = this.dataset.post;
-                    // kirim POST via fetch (form-urlencoded)
-                    fetch('index.php?action=like_post', {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
-                            },
-                            body: 'post_id=' + encodeURIComponent(postId)
-                        })
-                        .then(res => res.json())
-                        .then(data => {
-                            if (!data || data.status === 'error') {
-                                // optional: tampil error
-                                console.error('Like error', data);
-                                return;
-                            }
-                            const icon = document.querySelector('.icon-like-' + postId);
-                            const countSpan = document.querySelector('.like-count-' + postId);
-
-                            if (data.status === 'liked') {
-                                icon.classList.remove('bi-heart');
-                                icon.classList.add('bi-heart-fill', 'text-danger');
-                            } else if (data.status === 'unliked') {
-                                icon.classList.remove('bi-heart-fill', 'text-danger');
-                                icon.classList.add('bi-heart');
-                            }
-
-                            if (countSpan) countSpan.textContent = data.jumlah_like;
-                        })
-                        .catch(err => console.error(err));
-                });
-            });
-        });
-    </script>
 </body>
 </html>

@@ -140,9 +140,6 @@
                     All
                 </a>
 
-                <a href="index.php?action=admin_rangking&type=<?= $type ?>&mode=filter_sekolah"
-                    class="flex-fill text-center py-2 rounded-pill fw-semibold
-                    <?= $mode == 'admin_filter_sekolah' ? 'bg-white shadow-sm' : 'text-muted' ?>">
                 <a href="index.php?action=admin_rangking&type=<?= $type ?>&mode=school"
                     class="flex-fill text-center py-2 rounded-pill fw-semibold
                     <?= $mode == 'school' ? 'bg-white shadow-sm' : 'text-muted' ?>">
@@ -156,7 +153,7 @@
             
                     <input type="hidden" name="action" value="admin_rangking">
                     <input type="hidden" name="type" value="<?= $type ?>">
-                    <input type="hidden" name="mode" value="admin_filter_sekolah">
+                    <input type="hidden" name="mode" value="school">
 
                     <div class="input-group" style="max-width: 400px; position: relative;">
                     <input type="text" id="asal_sekolah" class="form-control" placeholder="enter the school name..." autocomplete="off">
