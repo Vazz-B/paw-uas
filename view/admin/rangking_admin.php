@@ -1,5 +1,3 @@
-<?php include 'tambah_postingan.php'; ?>
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -75,7 +73,7 @@
 
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php?action=dashboard">
+                        <a class="nav-link" href="index.php?action=dashboard_admin">
                             <i class="bi bi-house-door-fill"></i> Home
                         </a>
                     </li>
@@ -87,14 +85,9 @@
                     </li>
 
                     <li class="nav-item">
+
                         <a class="nav-link active" href="index.php?action=admin_rangking">
                             <i class="bi bi-trophy"></i> Rank
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.php?action=tampil_profil">
-                            <i class="bi bi-person"></i> Profile
                         </a>
                     </li>
 
@@ -150,19 +143,22 @@
                 <a href="index.php?action=admin_rangking&type=<?= $type ?>&mode=filter_sekolah"
                     class="flex-fill text-center py-2 rounded-pill fw-semibold
                     <?= $mode == 'admin_filter_sekolah' ? 'bg-white shadow-sm' : 'text-muted' ?>">
+                <a href="index.php?action=admin_rangking&type=<?= $type ?>&mode=school"
+                    class="flex-fill text-center py-2 rounded-pill fw-semibold
+                    <?= $mode == 'school' ? 'bg-white shadow-sm' : 'text-muted' ?>">
                     In School
                 </a>
             </div>
 
             <!-- FILTER PER SEKOLAH -->
-            <?php if($mode == 'filter_sekolah'): ?>
+            <?php if($mode == 'school'): ?>
                 <form action="index.php?action=admin_rangking" method="GET">
             
                     <input type="hidden" name="action" value="admin_rangking">
                     <input type="hidden" name="type" value="<?= $type ?>">
-                    <input type="hidden" name="mode" value="filter_sekolah">
+                    <input type="hidden" name="mode" value="admin_filter_sekolah">
 
-                    <div class="input-group" style="max-width: 400px;">
+                    <div class="input-group" style="max-width: 400px; position: relative;">
                     <input type="text" id="asal_sekolah" class="form-control" placeholder="enter the school name..." autocomplete="off">
 
                     <input type="hidden" name="sekolah_id" id="sekolah_id">
@@ -274,7 +270,7 @@ document.getElementById("asal_sekolah").addEventListener("keyup", function () {
         return;
     }
 
-    fetch("index.php?action=filter_sekolah&keyword=" + keyword)
+    fetch("index.php?action=admin_filter_sekolah&keyword=" + keyword)
         .then(response => response.json())
         .then(data => {
             let box = document.getElementById("suggestions");
