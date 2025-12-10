@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Daftar Akun</title>
+    <title>Register Account</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
@@ -90,32 +90,32 @@
     
     <div class="text-center mb-4">
         <img src="logo.png" width="55" class="mb-2">
-        <div class="title">Buat Akun RevYou</div>
-        <div class="subtitle">Masuk untuk mengakses review favoritmu</div>
+        <div class="title">Create a Revyou Account</div>
+        <div class="subtitle">Log in to access your favorite reviews</div>
     </div>
 
     <form action="index.php?action=proses_daftar" method="POST">
 
         <label class="fw-semibold mb-1">Username</label>
-        <input type="text" name="nama" class="form-control mb-3" placeholder="Masukkan username" required>
+        <input type="text" name="nama" class="form-control mb-3" placeholder="username" required>
 
         <label class="fw-semibold mb-1">Email</label>
-        <input type="email" name="email" class="form-control mb-3" placeholder="Masukkan email" required>
+        <input type="email" name="email" class="form-control mb-3" placeholder="email" required>
 
         <label class="fw-semibold mb-1">Password</label>
-        <input type="password" name="password" class="form-control mb-3" placeholder="Masukkan password" required>
+        <input type="password" name="password" class="form-control mb-3" placeholder="password" required>
 
-        <label class="fw-semibold mb-1">Asal Sekolah</label>
+        <label class="fw-semibold mb-1">School</label>
         <div style="position:relative;">
-            <input type="text" id="asal_sekolah" name="asal_sekolah" class="form-control" placeholder="Ketik nama sekolah..." required autocomplete="off">
+            <input type="text" id="asal_sekolah" name="asal_sekolah" class="form-control" placeholder="Type the name of your school..." required autocomplete="off">
             <div id="suggestions" class="suggestion-box"></div>
         </div>
 
-        <button class="btn btn-daftar w-100 mt-4">Daftar Sekarang</button>
+        <button class="btn btn-daftar w-100 mt-4">Register now</button>
 
         <p class="text-center mt-3">
-            Sudah punya akun?
-            <a href="index.php?action=login" class="fw-bold">Login di sini</a>
+            Already have an account?
+            <a href="index.php?action=login" class="fw-bold">Login here</a>
         </p>
 
     </form>
