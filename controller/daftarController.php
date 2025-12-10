@@ -23,7 +23,8 @@ function proses_daftar() {
         echo "<script>alert('Pendaftaran berhasil! Silakan login.'); 
         window.location='index.php?action=login';</script>";
         exit;
-    } else {
+    } 
+    else {
         echo "<script>alert('Gagal mendaftar!'); window.history.back();</script>";
     }
 }
@@ -31,6 +32,6 @@ function proses_daftar() {
 // nama sekolah otomatis
 function cari_Sekolah() {
     $keyword = trim($_GET['keyword'] ?? '');
-    header('Content-Type: application/json'); // penting
+    header('Content-Type: application/json'); 
     echo json_encode(cariSekolah($keyword));
 }

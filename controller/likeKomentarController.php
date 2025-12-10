@@ -18,7 +18,6 @@ function likeKomentarAction() {
     }
 
     if (hasLikedKomentar($komentar_id, $user_id)) {
-
         // UNLIKE
         unlikeKomentar($komentar_id, $user_id);
         decrementKomentarLike($komentar_id);
@@ -26,8 +25,8 @@ function likeKomentarAction() {
         $newCount = countLikesKomentar($komentar_id);
         echo json_encode(['status' => 'unliked', 'jumlah_like' => $newCount]);
 
-    } else {
-
+    } 
+    else {
         // LIKE
         likeKomentar($komentar_id, $user_id);
         incrementKomentarLike($komentar_id);

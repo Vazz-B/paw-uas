@@ -28,7 +28,8 @@ function tampilKomentarUser() {
         if (isset($_SESSION['user_id'])) {
             $komentar[$idx]['user_has_liked'] =
                 hasLikedKomentar($komentar_id, $_SESSION['user_id']);
-        } else {
+        } 
+        else {
             $komentar[$idx]['user_has_liked'] = false;
         }
     }
@@ -58,7 +59,8 @@ function simpanKomentarUser() {
     if ($hasil) {
         header("Location: index.php?action=komentar_user&post_id=" . $post_id);
         exit;
-    } else {
+    } 
+    else {
         echo "<script>alert('Gagal menyimpan komentar.'); window.history.back();</script>";
         exit;
     }

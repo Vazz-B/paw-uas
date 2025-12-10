@@ -25,7 +25,8 @@ function tampil_komentar_admin() {
         if (isset($_SESSION['user_id'])) {
             $komentar[$idx]['user_has_liked'] =
                 hasLikedKomentar($komentar_id, $_SESSION['user_id']);
-        } else {
+        } 
+        else {
             $komentar[$idx]['user_has_liked'] = false;
         }
     }

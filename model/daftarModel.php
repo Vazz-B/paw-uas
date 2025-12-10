@@ -19,7 +19,6 @@ function cariSekolah($keyword) {
 function tambah_sekolah_jika_belum_ada($asal_sekolah) {
     global $conn;
 
-    // Cek dulu
     $sql = "SELECT sekolah_id FROM sekolah WHERE nama_sekolah = ?";
     $stmt = mysqli_prepare($conn, $sql);
     mysqli_stmt_bind_param($stmt, "s", $asal_sekolah);
@@ -27,7 +26,7 @@ function tambah_sekolah_jika_belum_ada($asal_sekolah) {
     $data_sekolah = mysqli_stmt_get_result($stmt);
 
     if ($row = mysqli_fetch_assoc($data_sekolah)) {
-        return $row['sekolah_id']; // sudah ada
+        return $row['sekolah_id']; 
     }
 
     // Tambahkan baru

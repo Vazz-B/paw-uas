@@ -44,7 +44,7 @@ function admin_filter_sekolah() {
     untuk_admin();
 
     $keyword = trim($_GET['keyword'] ?? '');
-    header('Content-Type: application/json'); // penting
+    header('Content-Type: application/json');
     echo json_encode(cek_filter_sekolah($keyword));
 }
 

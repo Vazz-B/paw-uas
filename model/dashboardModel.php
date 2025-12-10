@@ -29,6 +29,7 @@ function ambil_semua_postingan() {
     return mysqli_fetch_all($result, MYSQLI_ASSOC);
 }
 
+
 function ambil_postingan_buku() {
     global $conn;
 
@@ -57,6 +58,7 @@ function ambil_postingan_buku() {
 
     return mysqli_fetch_all($result, MYSQLI_ASSOC);
 }
+
 
 function ambil_postingan_film() {
     global $conn;
@@ -87,6 +89,7 @@ function ambil_postingan_film() {
     return mysqli_fetch_all($result, MYSQLI_ASSOC);
 }
 
+
 function ambil_postingan_game() {
     global $conn;
 
@@ -115,6 +118,7 @@ function ambil_postingan_game() {
 
     return mysqli_fetch_all($result, MYSQLI_ASSOC);
 }
+
 
 function ambil_postingan_lagu() {
     global $conn;

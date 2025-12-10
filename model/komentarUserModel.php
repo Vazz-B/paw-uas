@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/../config/koneksi.php';
 
-// Ambil komentar untuk sebuah post (untuk tampilan user)
+// Ambil komentar untuk sebuah post
 function ambilKomentarByPost($post_id) {
     global $conn;
     $sql = "SELECT k.komentar_id, k.post_id, k.user_id, k.isi, k.tanggal_komen, k.jumlah_like, u.nama AS nama_user
@@ -17,7 +17,7 @@ function ambilKomentarByPost($post_id) {
     return mysqli_fetch_all($result, MYSQLI_ASSOC);
 }
 
-// Tambah komentar (dipakai oleh user)
+// Tambah komentar
 function tambahKomentar($post_id, $user_id, $isi) {
     global $conn;
     $sql = "INSERT INTO komentar (post_id, user_id, isi) VALUES (?, ?, ?)";

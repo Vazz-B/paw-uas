@@ -32,7 +32,8 @@ function likePostAction() {
     if (hasLikedPost($post_id, $user_id)) {
         $ok = removeLikePost($post_id, $user_id);
         $status = $ok ? 'unliked' : 'error';
-    } else {
+    } 
+    else {
         $ok = addLikePost($post_id, $user_id);
         $status = $ok ? 'liked' : 'error';
     }
