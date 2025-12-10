@@ -37,6 +37,61 @@ function tampilKomentarUser() {
     require_once __DIR__ . '/../view/user/komentar_user.php';
 }
 
+function editKomentarUser() {
+    session_start();
+    if (!isset($_SESSION['login'])) {
+        header("Location: index.php?action=login");
+        exit;
+    }
+
+    $komentar_id = intval($_GET['komentar_id'] ?? 0);
+
+    // Ambil data komentar
+    $komentar = getKomentarById($komentar_id);
+
+    if (!$komentar) {
+        echo "Komentar tidak ditemukan.";
+        exit;
+    }
+
+    // Hanya boleh edit milik sendiri
+    if ($komentar['user_id'] != $_SESSION['user_id']) {
+        echo "<script>alert('Kamu tidak boleh mengedit komentar orang lain!'); history.back();</script>";
+        exit;
+    }
+
+    require __DIR__ . '/../view/user/edit_komentar.php';
+}
+
+function updateKomentarUser() {
+    session_start();
+    if (!isset($_SESSION['login'])) {
+        header("Location: index.php?action=login");
+        exit;
+    }
+
+    $komentar_id = intval($_POST['komentar_id'] ?? 0);
+    $isi = trim($_POST['isi'] ?? '');
+
+    $komentar = getKomentarById($komentar_id);
+
+    if (!$komentar || $komentar['user_id'] != $_SESSION['user_id']) {
+        echo "<script>alert('Akses ditolak!'); history.back();</script>";
+        exit;
+    }
+
+    if ($isi === '') {
+        echo "<script>alert('Isi komentar tidak boleh kosong'); history.back();</script>";
+        exit;
+    }
+
+    updateKomentar($komentar_id, $isi);
+
+    header("Location: index.php?action=komentar_user&post_id=" . $komentar['post_id']);
+    exit;
+}
+
+
 function simpanKomentarUser() {
     session_start();
     if (!isset($_SESSION['login'])) {

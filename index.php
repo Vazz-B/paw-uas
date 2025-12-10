@@ -37,6 +37,8 @@ elseif ($action == "filter_game") tampil_filter_game();
 elseif ($action == "filter_lagu") tampil_filter_lagu();
 elseif ($action == "simpan_post") prosesSimpanPost();
 elseif ($action == "komentar_user") tampilKomentarUser();
+elseif ($action == "edit_komentar_user") editKomentarUser();
+elseif ($action == "update_komentar_user") updateKomentarUser();
 elseif ($action == "simpan_komentar_user") simpanKomentarUser();
 elseif ($action == "like_post") likePostAction();
 elseif ($action == "like_komentar") likeKomentarAction();

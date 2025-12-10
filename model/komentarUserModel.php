@@ -26,6 +26,28 @@ function tambahKomentar($post_id, $user_id, $isi) {
     return mysqli_stmt_execute($stmt);
 }
 
+function getKomentarById($komentar_id) {
+    global $conn;
+    $sql = "SELECT * FROM komentar WHERE komentar_id = ?";
+    $stmt = mysqli_prepare($conn, $sql);
+    mysqli_stmt_bind_param($stmt, "i", $komentar_id);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+
+    return mysqli_fetch_assoc($result);
+}
+
+function updateKomentar($komentar_id, $isi_baru) {
+    global $conn;
+
+    $sql = "UPDATE komentar SET isi = ?, tanggal_komen = NOW() WHERE komentar_id = ?";
+    $stmt = mysqli_prepare($conn, $sql);
+    mysqli_stmt_bind_param($stmt, "si", $isi_baru, $komentar_id);
+
+    return mysqli_stmt_execute($stmt);
+}
+
+
 // Hitung Jumlah Komentar
 function countKomentarByPost($post_id) {
     global $conn;

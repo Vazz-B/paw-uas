@@ -63,7 +63,14 @@
                                 </span>
                             </div>
                             <p class="mt-2 mb-1"><?= nl2br(htmlspecialchars($k['isi'])) ?></p>
-
+                            <?php if ($_SESSION['user_id'] == $k['user_id']): ?>
+                                <a href="index.php?action=edit_komentar_user&komentar_id=<?= $k['komentar_id'] ?>"
+                                    class="text-secondary ms-1"
+                                    style="font-size: 16px;"
+                                    title="Edit komentar">
+                                    <i class="bi bi-pencil-fill"></i>
+                                </a>
+                            <?php endif; ?>
                         </div>
                     </div>
                 <?php endforeach; ?>
@@ -106,4 +113,5 @@
         });
     </script>
 </body>
+
 </html>
