@@ -251,41 +251,41 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
-// AJAX autocomplete
-document.getElementById("asal_sekolah").addEventListener("keyup", function () {
-    let keyword = this.value;
-
-    if (keyword.length < 2) {
-        document.getElementById("suggestions").innerHTML = "";
-        return;
-    }
-
-    fetch("index.php?action=admin_filter_sekolah&keyword=" + keyword)
-        .then(response => response.json())
-        .then(data => {
-            let box = document.getElementById("suggestions");
-            box.innerHTML = "";
-
-            data.forEach(item => {
-                let div = document.createElement("div");
-                div.classList.add("suggestion-item");
-                div.textContent = item.nama_sekolah;
-
-                div.onclick = function () {
-
-                    // tampilkan nama sekolah
-                    document.getElementById("asal_sekolah").value = item.nama_sekolah;
-
-                    // simpan sekolah_id ke hidden input
-                    document.getElementById("sekolah_id").value = item.sekolah_id;
-
-                    box.innerHTML = "";
-                };
-
-                box.appendChild(div);
+    // AJAX autocomplete
+    document.getElementById("asal_sekolah").addEventListener("keyup", function () {
+        let keyword = this.value;
+    
+        if (keyword.length < 2) {
+            document.getElementById("suggestions").innerHTML = "";
+            return;
+        }
+    
+        fetch("index.php?action=admin_filter_sekolah&keyword=" + keyword)
+            .then(response => response.json())
+            .then(data => {
+                let box = document.getElementById("suggestions");
+                box.innerHTML = "";
+            
+                data.forEach(item => {
+                    let div = document.createElement("div");
+                    div.classList.add("suggestion-item");
+                    div.textContent = item.nama_sekolah;
+                
+                    div.onclick = function () {
+                    
+                        // tampilkan nama sekolah
+                        document.getElementById("asal_sekolah").value = item.nama_sekolah;
+                    
+                        // simpan sekolah_id ke hidden input
+                        document.getElementById("sekolah_id").value = item.sekolah_id;
+                    
+                        box.innerHTML = "";
+                    };
+                
+                    box.appendChild(div);
+                });
             });
-        });
-});
+    });
 </script>
 
 </body>

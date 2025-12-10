@@ -21,7 +21,6 @@
     <div class="container py-4">
         <button onclick="history.back()" class="btn btn-secondary">Kembali</button>
 
-
         <h4>Komentar</h4>
 
         <div>
@@ -65,7 +64,6 @@
                         </div>
                     </div>
                 <?php endforeach; ?>
-
             <?php endif; ?>
         </div>
     </div>
