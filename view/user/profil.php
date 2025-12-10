@@ -1,10 +1,6 @@
 <?php
-
-// require_once __DIR__ . '/../../controller/profilController.php';
-
-
-$user_id = $_SESSION['user_id'];  // Ambil user_id dari session
-$data_user = $_SESSION;  // Ambil data dari session
+$user_id = $_SESSION['user_id']; 
+$data_user = $_SESSION; 
 
 ?>
 
@@ -15,7 +11,6 @@ $data_user = $_SESSION;  // Ambil data dari session
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profil User</title>
     <style>
-        /* Styling CSS yang sudah ada */
         body {
             font-family: Arial, sans-serif; 
             background-color: #f7f7f7;
@@ -38,8 +33,8 @@ $data_user = $_SESSION;  // Ambil data dari session
         .profil-container {
             width: 80%;
             padding: 0 20px;
-            margin-top: 60px;     /* jarak dari header tetap */
-            max-height: 680px;     /* scroll container */
+            margin-top: 60px;    
+            max-height: 680px;     
             overflow-y: auto;
 
         }
@@ -196,21 +191,20 @@ $data_user = $_SESSION;  // Ambil data dari session
             background: #d93636;
         }
 
-        /* Tombol Edit kuning native */
         .btn-edit {
-            background-color: #ffeb3b; /* kuning */
+            background-color: #ffeb3b; 
             color: #333;
             text-decoration: none;
             padding: 6px 10px;
             border-radius: 4px;
             font-size: 12px;
             cursor: pointer;
-            margin-left: 8px; /* jarak dengan tombol Delete */
+            margin-left: 8px;
             display: inline-block;
         }
 
         .btn-edit:hover {
-            background-color: #fdd835; /* hover lebih terang */
+            background-color: #fdd835; 
         }
 
     </style>
