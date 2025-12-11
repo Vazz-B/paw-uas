@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - Minimal Review</title>
+    <title>RevYou</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
@@ -32,7 +32,7 @@
             color: #333;
             margin-bottom: 10px;
             padding: 10px 20px;
-            border-radius: 30px; /* Membuat tombol bulat */
+            border-radius: 30px; 
             display: flex;
             align-items: center;
             gap: 10px;
@@ -227,7 +227,6 @@
                                     <img src="uploads/<?= $p['gambar'] ?>" class="post-img" alt="Post Image">
                                 <?php endif; ?>
 
-                                <!-- Nizam -->
                                 <div class="mt-3 pt-3 border-top d-flex gap-4 text-muted">
                                     <?php
                                     $postId = $p['post_id'];
@@ -242,7 +241,6 @@
                                         <i class="bi bi-chat"></i>
                                         <span class="ms-1"><?= ($p['jumlah_komentar'] ?? 0) ?> Comment</span>
                                     </a>
-                                    <!-- Nizam -->
                                 </div>
                             </div>
                         <?php endforeach; ?>
