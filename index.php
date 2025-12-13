@@ -59,4 +59,3 @@ elseif ($action == "komentar_admin") tampil_komentar_admin();
 elseif ($action == "admin_hapus_komentar") admin_hapus_komentar_controller();
 elseif ($action == "admin_rangking") admin_tampilrangking();
 elseif ($action == "admin_filter_sekolah") admin_filter_sekolah();
-
