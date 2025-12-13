@@ -10,7 +10,7 @@ function admin_rangking_postingan_keseluruhan() {
             JOIN user u ON p.user_id = u.user_id
             LEFT JOIN kategori k ON p.kategori_id = k.kategori_id
             ORDER BY p.jumlah_like DESC
-            LIMIT 10";
+            LIMIT 3";
 
     return mysqli_query($conn, $sql);
 }

@@ -197,8 +197,8 @@
                                 <div class="d-flex align-items-center mb-3">
                                     <img src="https://ui-avatars.com/api/?name=<?= $p['nama_user'] ?>&background=random" class="user-avatar me-3">
                                     <div>
-                                        <h6 class="mb-0 fw-bold"><?= $p['nama_user'] ?></h6>
                                         <small class="text-muted"><?= date('d M Y, H:i', strtotime($p['tanggal_post'])) ?></small>
+                                        <h6 class="mb-0 fw-bold"><?= $p['nama_user'] ?></h6>
                                     </div>
                                 </div>
 
